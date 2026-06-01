@@ -40,27 +40,51 @@ async function appendToSheet(values: string[]) {
   return { ok: true }
 }
 
+function escapeHtml(s: string) {
+  return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string))
+}
+
 async function notifyEmails(lead: z.infer<typeof leadSchema>) {
-  const origin = process.env.LOVABLE_APP_URL ?? ''
-  const results = await Promise.allSettled(
-    NOTIFY_EMAILS.map((to) =>
-      fetch(`${origin}/lovable/email/transactional/send`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          templateName: 'new-lead-notification',
-          recipientEmail: to,
-          idempotencyKey: `lead-${lead.email}-${Date.now()}-${to}`,
-          templateData: lead,
-        }),
-      }),
-    ),
-  )
-  results.forEach((r, i) => {
-    if (r.status === 'rejected') {
-      console.error(`Email notify failed for ${NOTIFY_EMAILS[i]}`, r.reason)
-    }
+  const lovableKey = process.env.LOVABLE_API_KEY
+  const resendKey = process.env.RESEND_API_KEY
+  if (!lovableKey || !resendKey) {
+    console.error('Missing Resend credentials')
+    return
+  }
+  const rows = [
+    ['Nombre', lead.name],
+    ['Email', lead.email],
+    ['Teléfono', lead.phone ?? '-'],
+    ['Empresa', lead.company ?? '-'],
+    ['Origen', lead.source ?? '-'],
+    ['Mensaje', lead.message ?? '-'],
+  ]
+    .map(
+      ([k, v]) =>
+        `<tr><td style="padding:8px 12px;border:1px solid #e5e7eb;background:#f9fafb;font-weight:600">${escapeHtml(k)}</td><td style="padding:8px 12px;border:1px solid #e5e7eb">${escapeHtml(v)}</td></tr>`,
+    )
+    .join('')
+  const html = `<div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:600px;margin:auto;padding:24px"><h2 style="margin:0 0 16px">Nuevo lead - Agente Inteligente</h2><p style="color:#475569;margin:0 0 20px">Se recibió una nueva solicitud de evaluación gratuita.</p><table style="border-collapse:collapse;width:100%;font-size:14px">${rows}</table><p style="color:#94a3b8;font-size:12px;margin-top:24px">Recibido: ${new Date().toLocaleString('es-CL')}</p></div>`
+
+  const res = await fetch('https://connector-gateway.lovable.dev/resend/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${lovableKey}`,
+      'X-Connection-Api-Key': resendKey,
+    },
+    body: JSON.stringify({
+      from: 'Leads <onboarding@resend.dev>',
+      to: NOTIFY_EMAILS,
+      reply_to: lead.email,
+      subject: `Nuevo lead: ${lead.name}${lead.company ? ` (${lead.company})` : ''}`,
+      html,
+    }),
   })
+  if (!res.ok) {
+    const text = await res.text()
+    console.error('Resend send failed', res.status, text)
+  }
 }
 
 export const Route = createFileRoute('/api/public/lead-submit')({
