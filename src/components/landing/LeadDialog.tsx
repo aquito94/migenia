@@ -12,7 +12,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 
 const LEAD_EVENT = "open-lead-dialog";
 
@@ -60,16 +59,20 @@ export function LeadDialog() {
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.from("leads").insert({
-      name: parsed.data.name,
-      email: parsed.data.email,
-      phone: parsed.data.phone || null,
-      company: parsed.data.company || null,
-      message: parsed.data.message || null,
-      source: source ?? null,
+    const res = await fetch("/api/public/lead-submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: parsed.data.name,
+        email: parsed.data.email,
+        phone: parsed.data.phone || null,
+        company: parsed.data.company || null,
+        message: parsed.data.message || null,
+        source: source ?? null,
+      }),
     });
     setSubmitting(false);
-    if (error) {
+    if (!res.ok) {
       toast.error("No pudimos enviar tu solicitud. Inténtalo de nuevo.");
       return;
     }
