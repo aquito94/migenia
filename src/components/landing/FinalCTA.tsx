@@ -3,10 +3,6 @@ import { Reveal } from "./Section";
 import { openLeadDialog } from "./LeadDialog";
 
 export function FinalCTA() {
-  const scrollToAudit = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.getElementById("audit")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
   return (
     <section id="cta" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
