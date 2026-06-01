@@ -47,15 +47,12 @@ export function Nav() {
             ))}
           </nav>
           <div className="hidden md:flex items-center gap-3">
-            <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Iniciar sesión
-            </a>
             <button
               type="button"
               onClick={() => openLeadDialog("nav")}
               className="rounded-full bg-gradient-accent px-4 py-2 text-sm font-medium text-primary-foreground shadow-glow hover:opacity-90 transition"
             >
-              Solicitar Demo
+              Agendar evaluación gratuita
             </button>
           </div>
           <button
@@ -81,7 +78,7 @@ export function Nav() {
               }}
               className="rounded-full bg-gradient-accent px-4 py-2 text-sm font-medium text-primary-foreground text-center"
             >
-              Solicitar Demo
+              Agendar evaluación gratuita
             </button>
           </div>
         )}
