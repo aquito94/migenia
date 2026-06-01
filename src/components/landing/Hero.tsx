@@ -42,7 +42,7 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <a
-              href="https://w.app/migenia"
+              href="https://wa.me/593992760828?text=Quiero%20transformar%20mi%20negocio"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium hover:bg-white/5 transition"
