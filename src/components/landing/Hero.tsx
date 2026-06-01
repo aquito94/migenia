@@ -1,6 +1,7 @@
 import { ArrowRight, Sparkles, Zap, MessageSquare, BarChart3, Workflow } from "lucide-react";
 import { motion } from "motion/react";
 import { Reveal } from "./Section";
+import { openLeadDialog } from "./LeadDialog";
 
 export function Hero() {
   return (
@@ -32,23 +33,21 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="https://w.app/migenia"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => openLeadDialog("hero_primary")}
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-accent px-6 py-3 text-sm font-medium text-primary-foreground shadow-glow hover:opacity-95 transition"
             >
               Solicitar Demo
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="https://w.app/migenia"
-              target="_blank"
-              rel="noopener noreferrer"
+            </button>
+            <button
+              type="button"
+              onClick={() => openLeadDialog("hero_secondary")}
               className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium hover:bg-white/5 transition"
             >
               Hablar con un Especialista
-            </a>
+            </button>
             </div>
           </Reveal>
         </div>

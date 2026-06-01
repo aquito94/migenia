@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Sparkles, Menu, X } from "lucide-react";
+import { openLeadDialog } from "./LeadDialog";
 
 const links = [
   { href: "#services", label: "Metodología" },
@@ -49,14 +50,13 @@ export function Nav() {
             <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Iniciar sesión
             </a>
-            <a
-              href="https://w.app/migenia"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => openLeadDialog("nav")}
               className="rounded-full bg-gradient-accent px-4 py-2 text-sm font-medium text-primary-foreground shadow-glow hover:opacity-90 transition"
             >
               Solicitar Demo
-            </a>
+            </button>
           </div>
           <button
             className="md:hidden text-foreground"
@@ -73,15 +73,16 @@ export function Nav() {
                 {l.label}
               </a>
             ))}
-            <a
-              href="https://w.app/migenia"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openLeadDialog("nav_mobile");
+              }}
               className="rounded-full bg-gradient-accent px-4 py-2 text-sm font-medium text-primary-foreground text-center"
             >
               Solicitar Demo
-            </a>
+            </button>
           </div>
         )}
       </div>
