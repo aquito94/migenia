@@ -41,13 +41,14 @@ export function Hero() {
               Solicitar Demo
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button
-              type="button"
-              onClick={() => openLeadDialog("hero_secondary")}
+            <a
+              href="https://w.app/migenia"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium hover:bg-white/5 transition"
             >
               Hablar con un Especialista
-            </button>
+            </a>
             </div>
           </Reveal>
         </div>
