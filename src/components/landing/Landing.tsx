@@ -16,6 +16,8 @@ import { Analytics } from "./Analytics";
 import { Testimonials } from "./Testimonials";
 import { FinalCTA } from "./FinalCTA";
 import { Footer } from "./Footer";
+import { LeadDialog } from "./LeadDialog";
+import { Toaster } from "@/components/ui/sonner";
 
 export function Landing() {
   return (
@@ -40,6 +42,8 @@ export function Landing() {
         <FinalCTA />
       </main>
       <Footer />
+      <LeadDialog />
+      <Toaster richColors position="top-center" />
     </div>
   );
 }
