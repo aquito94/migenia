@@ -180,7 +180,7 @@ export function EcosystemDiagram({ className }: { className?: string }) {
 
       <div className="grid grid-cols-3 divide-x divide-border border-t border-border text-center">
         {[
-          ["Fuentes", "5"],
+          ["Fuentes", "3"],
           ["Capas de proceso", "2"],
           ["Salida ejecutiva", "1"],
         ].map(([label, value]) => (
