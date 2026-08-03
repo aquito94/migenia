@@ -40,6 +40,7 @@ function Home() {
       <Differentiators />
       <Capabilities />
       <HowWeWork />
+      <Industries />
       <UseCases />
       <Technologies />
       <CTA />
