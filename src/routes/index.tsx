@@ -1,15 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
-import { Positioning } from "@/components/site/Positioning";
-import { CapabilityRows } from "@/components/site/CapabilityRows";
-import { Method } from "@/components/site/Method";
-import { IndustriesGrid } from "@/components/site/IndustriesGrid";
+import {
+  Problems,
+  Differentiators,
+  Capabilities,
+  HowWeWork,
+  UseCases,
+  Technologies,
+} from "@/components/site/HomeSections";
 import { CTA } from "@/components/site/CTA";
 
 const title = "MiGenIA — Ingeniería tecnológica para transformación empresarial";
 const description =
-  "Firma de ingeniería que diseña e implementa IA aplicada, automatización, software, business intelligence e integración de sistemas para empresas medianas y grandes.";
+  "MiGenIA es una firma de ingeniería tecnológica que diseña, desarrolla e implementa soluciones empresariales enfocadas en resultados de negocio.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,10 +33,12 @@ function Home() {
   return (
     <SiteLayout>
       <Hero />
-      <Positioning />
-      <CapabilityRows />
-      <Method />
-      <IndustriesGrid limit={3} withCta />
+      <Problems />
+      <Differentiators />
+      <Capabilities />
+      <HowWeWork />
+      <UseCases />
+      <Technologies />
       <CTA />
     </SiteLayout>
   );

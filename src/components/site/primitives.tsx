@@ -112,3 +112,35 @@ export function Stat({ value, label }: { value: string; label: string }) {
     </div>
   );
 }
+
+export function SectionShell({ index, title }: { index: string; title: string }) {
+  return (
+    <div className="max-w-3xl">
+      <Reveal>
+        <div className="flex items-center gap-3">
+          <span className="font-display text-xs font-semibold tracking-eyebrow text-primary">
+            {index}
+          </span>
+          <span className="h-px w-10 bg-border" />
+          <span className="text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground">
+            Sección
+          </span>
+        </div>
+      </Reveal>
+      <Reveal delay={0.05}>
+        <h2 className="mt-5 text-[clamp(1.8rem,4.2vw,3rem)] font-semibold text-foreground text-balance">
+          {title}
+        </h2>
+      </Reveal>
+      <Reveal delay={0.1}>
+        <div className="mt-6 space-y-2.5">
+          <div className="h-2.5 w-full max-w-xl rounded-full bg-secondary" />
+          <div className="h-2.5 w-3/4 max-w-lg rounded-full bg-secondary" />
+        </div>
+        <p className="mt-3 text-[11px] uppercase tracking-eyebrow text-muted-foreground">
+          Bajada de sección
+        </p>
+      </Reveal>
+    </div>
+  );
+}

@@ -1,0 +1,226 @@
+import { Container, Reveal, Section, SectionShell } from "./primitives";
+import { HeadingSlot, ListSlot, MediaSlot, SlotLabel, TextSlot } from "./Slots";
+
+/* 3. Problemas que resolvemos */
+export function Problems() {
+  return (
+    <Section id="problemas" className="border-b border-border">
+      <Container className="max-w-7xl">
+        <SectionShell index="01" title="Problemas que resolvemos" />
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Reveal key={i} delay={i * 0.05}>
+              <article className="flex h-full min-w-0 flex-col rounded-2xl border border-border bg-card p-7 shadow-card">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-9 w-9 place-items-center rounded-lg border border-dashed border-border bg-secondary/60 text-[10px] text-muted-foreground">
+                    Ico
+                  </span>
+                  <span className="font-display text-xs text-muted-foreground">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <HeadingSlot label="Problema" className="mt-6" />
+                <TextSlot label="Impacto en el negocio" lines={3} className="mt-6" />
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* 4. Qué hace diferente a MiGenIA */
+export function Differentiators() {
+  return (
+    <Section id="diferencial" className="border-b border-border bg-secondary/40">
+      <Container className="max-w-7xl">
+        <SectionShell index="02" title="Qué hace diferente a MiGenIA" />
+        <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          <Reveal>
+            <div className="min-w-0 space-y-8">
+              <TextSlot label="Declaración de diferencial" lines={4} />
+              <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
+                {["Diferencial 01", "Diferencial 02", "Diferencial 03", "Diferencial 04"].map(
+                  (d) => (
+                    <div key={d} className="bg-card p-6">
+                      <SlotLabel>{d}</SlotLabel>
+                      <div className="mt-4 space-y-2">
+                        <div className="h-2.5 w-full rounded-full bg-secondary" />
+                        <div className="h-2.5 w-3/4 rounded-full bg-secondary" />
+                      </div>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="min-w-0 rounded-2xl border border-border bg-card p-7 shadow-card sm:p-9">
+              <SlotLabel>Comparativa: enfoque tradicional vs. MiGenIA</SlotLabel>
+              <div className="mt-6 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
+                {["Enfoque habitual", "Enfoque MiGenIA"].map((col) => (
+                  <div key={col} className="bg-background p-6">
+                    <p className="text-[11px] uppercase tracking-eyebrow text-muted-foreground">
+                      {col}
+                    </p>
+                    <ul className="mt-5 space-y-3">
+                      {Array.from({ length: 4 }).map((_, i) => (
+                        <li key={i} className="flex items-center gap-2.5">
+                          <span className="h-1 w-1 shrink-0 rounded-full bg-primary" />
+                          <span
+                            className="h-2.5 rounded-full bg-secondary"
+                            style={{ width: `${85 - i * 10}%` }}
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* 5. Capacidades */
+export function Capabilities() {
+  return (
+    <Section id="capacidades" className="border-b border-border">
+      <Container className="max-w-7xl">
+        <SectionShell index="03" title="Capacidades" />
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Reveal key={i} delay={i * 0.04}>
+              <div className="h-full bg-card p-7 sm:p-8">
+                <span className="grid h-9 w-9 place-items-center rounded-lg border border-dashed border-border bg-secondary/60 text-[10px] text-muted-foreground">
+                  Ico
+                </span>
+                <HeadingSlot label={`Capacidad ${String(i + 1).padStart(2, "0")}`} className="mt-6" />
+                <TextSlot label="Descripción" lines={2} className="mt-5" />
+                <ListSlot label="Entregables" items={3} />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* 6. Cómo trabajamos */
+export function HowWeWork() {
+  return (
+    <Section id="metodo" className="border-b border-border bg-secondary/40">
+      <Container className="max-w-7xl">
+        <SectionShell index="04" title="Cómo trabajamos" />
+        <div className="mt-14 grid gap-5 lg:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Reveal key={i} delay={i * 0.06}>
+              <div className="flex h-full min-w-0 flex-col rounded-2xl border border-border bg-card p-7 shadow-card">
+                <div className="flex items-center gap-3">
+                  <span className="font-display text-3xl font-semibold text-primary/25">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="h-px flex-1 bg-border" />
+                </div>
+                <HeadingSlot label="Etapa" className="mt-6" />
+                <TextSlot label="Qué ocurre" lines={3} className="mt-6" />
+                <ListSlot label="Entregable" items={2} />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.1}>
+          <div className="mt-10 rounded-2xl border border-border bg-card p-7 shadow-card">
+            <SlotLabel>Línea de tiempo / duración estimada por fase</SlotLabel>
+            <div className="mt-6 grid grid-cols-4 gap-2">
+              {[35, 55, 80, 100].map((w, i) => (
+                <div key={i} className="h-2.5 rounded-full bg-secondary">
+                  <div className="h-full rounded-full bg-primary/30" style={{ width: `${w}%` }} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </Section>
+  );
+}
+
+/* 7. Casos de uso */
+export function UseCases() {
+  return (
+    <Section id="casos" className="border-b border-border">
+      <Container className="max-w-7xl">
+        <SectionShell index="05" title="Casos de uso" />
+        <div className="mt-14 space-y-5">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <Reveal key={i} delay={i * 0.06}>
+              <article className="grid gap-8 rounded-2xl border border-border bg-card p-7 shadow-card sm:p-9 lg:grid-cols-[0.9fr_1.1fr_0.9fr]">
+                <div className="min-w-0">
+                  <SlotLabel>Contexto / sector</SlotLabel>
+                  <HeadingSlot label="Situación inicial" className="mt-5" />
+                </div>
+                <TextSlot label="Solución implementada" lines={4} />
+                <div className="min-w-0 lg:border-l lg:border-border lg:pl-8">
+                  <ListSlot label="Resultados" items={3} />
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* 8. Tecnologías */
+export function Technologies() {
+  return (
+    <Section id="tecnologias" className="border-b border-border bg-secondary/40">
+      <Container className="max-w-7xl">
+        <SectionShell index="06" title="Tecnologías" />
+        <div className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Reveal>
+            <div className="min-w-0 space-y-8">
+              <TextSlot label="Criterio de selección tecnológica" lines={4} />
+              <div className="space-y-3">
+                {["Categoría 01", "Categoría 02", "Categoría 03", "Categoría 04"].map((c) => (
+                  <div
+                    key={c}
+                    className="flex items-center justify-between rounded-xl border border-border bg-card px-5 py-4"
+                  >
+                    <SlotLabel>{c}</SlotLabel>
+                    <div className="h-2.5 w-24 rounded-full bg-secondary" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="min-w-0 rounded-2xl border border-border bg-card p-7 shadow-card sm:p-9">
+              <SlotLabel>Stack / logotipos de tecnologías</SlotLabel>
+              <div className="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-4">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="flex h-16 items-center justify-center rounded-xl border border-dashed border-border bg-background text-[10px] uppercase tracking-eyebrow text-muted-foreground"
+                  >
+                    Logo
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8">
+                <MediaSlot label="Diagrama de arquitectura" ratio="aspect-[16/7]" />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </Container>
+    </Section>
+  );
+}
