@@ -9,7 +9,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 grid-lines" />
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[420px] w-[820px] -translate-x-1/2 glow-blue" />
       <Container className="relative max-w-7xl">
-        <div className="grid gap-16 py-24 sm:py-32 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-20 lg:py-36">
+        <div className="grid gap-10 py-14 sm:py-16 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14 lg:py-20">
           <div className="min-w-0">
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground">
