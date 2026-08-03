@@ -3,19 +3,16 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
 import {
   Problems,
-  Complexity,
-  Differentiators,
+  Transformation,
   Capabilities,
-  HowWeWork,
-  Industries,
-  UseCases,
-  Technologies,
+  Method,
+  Cases,
 } from "@/components/site/HomeSections";
 import { CTA } from "@/components/site/CTA";
 
-const title = "MiGenIA — Ingeniería tecnológica para transformación empresarial";
+const title = "MiGenIA — Ingeniería tecnológica para empresas";
 const description =
-  "MiGenIA es una firma de ingeniería tecnológica que diseña, desarrolla e implementa soluciones empresariales enfocadas en resultados de negocio.";
+  "Diseñamos la arquitectura tecnológica que conecta procesos, personas y datos para eliminar ineficiencias y acelerar decisiones.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,13 +33,10 @@ function Home() {
     <SiteLayout>
       <Hero />
       <Problems />
-      <Complexity />
-      <Differentiators />
+      <Transformation />
       <Capabilities />
-      <HowWeWork />
-      <Industries />
-      <UseCases />
-      <Technologies />
+      <Method />
+      <Cases />
       <CTA />
     </SiteLayout>
   );
