@@ -172,24 +172,24 @@ export function Capabilities() {
           eyebrow="La solución"
           title="Cuatro frentes de trabajo. Un objetivo: que la empresa opere mejor."
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <div className="mt-7 grid gap-3 sm:grid-cols-2">
           {CAPABILITIES.map(({ icon: Icon, title, problem, impact }, i) => (
             <Reveal key={title} delay={0.04 * i}>
-              <article className="group flex h-full flex-col rounded-xl border border-border bg-card p-6 transition-colors duration-300 hover:border-foreground/20 sm:p-7">
+              <article className="group flex h-full flex-col rounded-xl border border-border bg-card p-5 transition-colors duration-300 hover:border-foreground/20">
                 <div className="flex items-center gap-3">
-                  <span className="inline-grid h-9 w-9 place-items-center rounded-lg border border-border text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-                    <Icon className="h-[17px] w-[17px]" strokeWidth={1.5} />
+                  <span className="inline-grid h-8 w-8 place-items-center rounded-lg border border-border text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                    <Icon className="h-4 w-4" strokeWidth={1.5} />
                   </span>
-                  <h3 className="text-base font-semibold tracking-tight text-foreground">
+                  <h3 className="text-[15px] font-semibold tracking-tight text-foreground">
                     {title}
                   </h3>
                 </div>
-                <dl className="mt-5 space-y-4 border-t border-border pt-5">
+                <dl className="mt-4 space-y-3 border-t border-border pt-4">
                   <div>
                     <dt className="text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground">
                       Problema
                     </dt>
-                    <dd className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    <dd className="mt-1 text-[13.5px] leading-relaxed text-muted-foreground">
                       {problem}
                     </dd>
                   </div>
@@ -197,13 +197,29 @@ export function Capabilities() {
                     <dt className="text-[11px] font-medium uppercase tracking-eyebrow text-primary">
                       Impacto
                     </dt>
-                    <dd className="mt-1.5 text-sm leading-relaxed text-foreground">{impact}</dd>
+                    <dd className="mt-1 text-[13.5px] leading-relaxed text-foreground">{impact}</dd>
                   </div>
                 </dl>
               </article>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.14}>
+          <div className="mt-7 flex flex-col items-start gap-3 rounded-xl border border-border bg-secondary/50 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-[14.5px] leading-relaxed text-foreground">
+              ¿Dónde está la mayor oportunidad de eficiencia en tu operación?
+            </p>
+            <ButtonAction
+              variant="primary"
+              withArrow
+              onClick={() => openLeadDialog("capacidades")}
+            >
+              Agenda un diagnóstico estratégico
+            </ButtonAction>
+          </div>
+        </Reveal>
+
       </Container>
     </Section>
   );
