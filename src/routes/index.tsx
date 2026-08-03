@@ -8,6 +8,7 @@ import {
   Method,
   Cases,
 } from "@/components/site/HomeSections";
+import { Diagnostic } from "@/components/site/Diagnostic";
 import { CTA } from "@/components/site/CTA";
 
 const title = "MiGenIA — Ingeniería tecnológica para empresas";
@@ -37,6 +38,7 @@ function Home() {
       <Capabilities />
       <Method />
       <Cases />
+      <Diagnostic />
       <CTA />
     </SiteLayout>
   );
