@@ -15,10 +15,12 @@ export function CTA() {
               <h2 className="mx-auto max-w-2xl font-display text-[clamp(1.35rem,2.4vw,1.75rem)] leading-[1.15] tracking-tight text-background">
                 Descubre dónde tu empresa puede ganar eficiencia.
               </h2>
-              <p className="mx-auto mt-3 max-w-lg text-[14.5px] leading-relaxed text-background/65">
-                Un diagnóstico estratégico para identificar oportunidades
-                concretas de tu operación.
+              <p className="mx-auto mt-3 max-w-xl text-[14.5px] leading-relaxed text-background/65">
+                Identificamos dónde tu empresa puede ganar eficiencia mediante
+                procesos mejor conectados, datos que apoyan decisiones y
+                automatización estratégica.
               </p>
+
 
               <div className="mt-6 flex justify-center">
                 <ButtonAction
