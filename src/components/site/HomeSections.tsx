@@ -6,7 +6,7 @@ import {
   FileStack,
   Layers,
   Repeat,
-  Timer,
+  
   Unplug,
   Workflow,
   type LucideIcon,
@@ -22,22 +22,22 @@ const PROBLEMS: Array<{ icon: LucideIcon; title: string; body: string }> = [
   {
     icon: Unplug,
     title: "Procesos desconectados",
-    body: "Cada área trabaja con herramientas aisladas y la información no fluye.",
+    body: "Equipos que trabajan con información fragmentada y pierden eficiencia.",
+  },
+  {
+    icon: Repeat,
+    title: "Trabajo manual excesivo",
+    body: "Tiempo perdido en tareas repetitivas y errores operativos evitables.",
   },
   {
     icon: FileStack,
     title: "Datos dispersos",
-    body: "Los datos existen, pero viven en sistemas que nunca coinciden.",
+    body: "Información que existe, pero no ayuda a decidir mejor.",
   },
   {
-    icon: Repeat,
-    title: "Trabajo manual",
-    body: "Tareas repetitivas consumen el tiempo del equipo y abren espacio al error.",
-  },
-  {
-    icon: Timer,
-    title: "Decisiones lentas",
-    body: "La dirección espera reportes que llegan tarde para decidir.",
+    icon: Layers,
+    title: "Sistemas aislados",
+    body: "Más herramientas y, con ellas, más complejidad para operar.",
   },
 ];
 
@@ -47,8 +47,10 @@ export function Problems() {
       <Container className="max-w-7xl">
         <SectionHeading
           eyebrow="El punto de partida"
-          title="¿Por qué tantas empresas crecen con procesos que las frenan?"
+          title="A muchas empresas no les falta tecnología. Les falta conexión."
+          lead="Los problemas de fondo no están en las herramientas, sino en cómo se conectan procesos, personas y sistemas."
         />
+
         <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {PROBLEMS.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={0.04 * i}>
@@ -142,28 +144,28 @@ const CAPABILITIES: Array<{
   impact: string;
 }> = [
   {
+    icon: Brain,
+    title: "Inteligencia artificial empresarial",
+    problem: "Se habla de IA, pero rara vez aterriza en la operación real.",
+    impact: "Aplicamos IA donde genera impacto medible en procesos y decisiones.",
+  },
+  {
     icon: Workflow,
-    title: "Operaciones inteligentes",
-    problem: "Los procesos avanzan a la velocidad de quien los ejecuta a mano.",
-    impact: "Operaciones que se ejecutan solas, con menos errores y tiempos más cortos.",
+    title: "Automatización inteligente",
+    problem: "El avance de la operación depende de tareas hechas a mano.",
+    impact: "Eliminamos trabajo repetitivo y mejoramos la eficiencia operacional.",
   },
   {
     icon: BarChart3,
-    title: "Decisiones inteligentes",
-    problem: "La dirección revisa reportes que llegan tarde y no coinciden.",
-    impact: "Indicadores confiables y actualizados para decidir sobre hechos.",
+    title: "Business Intelligence",
+    problem: "Los datos existen, pero no llegan a tiempo ni coinciden.",
+    impact: "Convertimos datos dispersos en información útil para decidir.",
   },
   {
     icon: Layers,
-    title: "Procesos conectados",
-    problem: "Cada área opera con sistemas que no se hablan entre sí.",
-    impact: "Información que fluye de punta a punta, sin transcripciones ni retrabajo.",
-  },
-  {
-    icon: Brain,
-    title: "Arquitectura escalable",
-    problem: "Cada nuevo sistema agrega complejidad en lugar de resolverla.",
-    impact: "Una base tecnológica ordenada donde la empresa puede crecer.",
+    title: "Integración y arquitectura",
+    problem: "Cada nuevo sistema suma complejidad en lugar de resolverla.",
+    impact: "Conectamos sistemas para construir operaciones escalables y con control.",
   },
 ];
 
@@ -172,9 +174,11 @@ export function Capabilities() {
     <Section id="capacidades" className="border-b border-border">
       <Container className="max-w-7xl">
         <SectionHeading
-          eyebrow="La solución"
+          eyebrow="Capacidades"
           title="Cuatro frentes de trabajo. Un objetivo: que la empresa opere mejor."
+          lead="La tecnología es el habilitador; el resultado es una operación más eficiente y con mejores decisiones."
         />
+
         <div className="mt-7 grid gap-3 sm:grid-cols-2">
           {CAPABILITIES.map(({ icon: Icon, title, problem, impact }, i) => (
             <Reveal key={title} delay={0.04 * i}>
@@ -231,23 +235,26 @@ export function Capabilities() {
 /* ── 5. Método MiGenIA ─────────────────────────────────────── */
 
 const STEPS: Array<{ n: string; title: string; body: string }> = [
-  { n: "01", title: "Entender", body: "Analizamos la operación y dónde se pierde eficiencia." },
-  { n: "02", title: "Diseñar", body: "Definimos cómo debería funcionar antes de tocar tecnología." },
-  { n: "03", title: "Construir", body: "Desarrollamos lo necesario, sin piezas de más." },
-  { n: "04", title: "Conectar", body: "Integramos sistemas y datos en una sola operación." },
-  { n: "05", title: "Optimizar", body: "Medimos resultados y mejoramos de forma continua." },
+  { n: "01", title: "Diagnóstico", body: "Comprendemos los procesos actuales y las oportunidades." },
+  { n: "02", title: "Diseño", body: "Definimos la arquitectura adecuada para la operación." },
+  { n: "03", title: "Implementación", body: "Construimos e integramos las soluciones necesarias." },
+  { n: "04", title: "Optimización", body: "Mejoramos de forma continua el impacto generado." },
 ];
 
 export function Method() {
   return (
     <Section id="metodo" className="border-b border-border bg-secondary/40">
       <Container className="max-w-7xl">
-        <SectionHeading eyebrow="Método MiGenIA" title="Cómo trabajamos." />
+        <SectionHeading
+          eyebrow="Método MiGenIA"
+          title="No empezamos implementando tecnología. Primero entendemos el negocio."
+        />
+
 
         <div className="mt-7">
           <div className="relative hidden lg:block">
             <div className="absolute left-0 right-0 top-[14px] h-px bg-border" />
-            <ol className="relative grid grid-cols-5 gap-4">
+            <ol className="relative grid grid-cols-4 gap-4">
               {STEPS.map(({ n, title, body }, i) => (
                 <Reveal key={n} delay={0.05 * i}>
                   <li>
@@ -318,7 +325,8 @@ export function Cases() {
       <Container className="max-w-7xl">
         <SectionHeading
           eyebrow="Casos"
-          title="Tres empresas. Tres formas de trabajar mejor."
+          title="Transformaciones que mejoran cómo opera el negocio."
+          lead="Cada caso parte de un problema operativo concreto y termina en un resultado medible por la dirección."
         />
 
         <div className="mt-7 grid gap-3 lg:grid-cols-3">
@@ -334,10 +342,11 @@ export function Cases() {
 
                 <div className="mt-4 space-y-3 border-t border-border pt-4">
                   {[
-                    ["Desafío", problem, false],
+                    ["Problema", problem, false],
                     ["Solución", solution, false],
-                    ["Resultado", result, true],
+                    ["Impacto", result, true],
                   ].map(([label, text, strong]) => (
+
                     <div key={label as string}>
                       <p
                         className={
