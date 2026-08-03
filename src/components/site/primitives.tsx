@@ -66,7 +66,7 @@ export function SectionHeading({
         </Reveal>
       )}
       <Reveal delay={0.05}>
-      <h2 className="mt-3 text-[clamp(1.7rem,3.6vw,2.5rem)] font-semibold leading-[1.12] text-foreground text-balance">
+        <h2 className="mt-2.5 text-[clamp(1.45rem,2.6vw,2rem)] font-semibold leading-[1.15] tracking-tight text-foreground text-balance">
           {title}
         </h2>
       </Reveal>
@@ -74,7 +74,7 @@ export function SectionHeading({
         <Reveal delay={0.1}>
           <p
             className={cn(
-              "mt-4 text-[15px] sm:text-base leading-relaxed text-muted-foreground",
+              "mt-3 text-[14.5px] leading-relaxed text-muted-foreground",
               align === "center" && "mx-auto max-w-2xl",
             )}
           >
@@ -96,11 +96,12 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={cn("py-14 sm:py-16 lg:py-20", className)}>
+    <section id={id} className={cn("py-9 sm:py-11 lg:py-13", className)}>
       {children}
     </section>
   );
 }
+
 
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
