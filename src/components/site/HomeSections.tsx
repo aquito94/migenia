@@ -9,6 +9,12 @@ import { HeadingSlot, ListSlot, MediaSlot, SlotLabel, TextSlot } from "./Slots";
 import {
   BarChart3,
   Boxes,
+  Briefcase,
+  HeartPulse,
+  RadioTower,
+  Rocket,
+  Store,
+  Truck,
   Code2,
   Compass,
   Headphones,
