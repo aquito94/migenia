@@ -61,7 +61,7 @@ export function Problems() {
         />
         <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {CHALLENGES.map(({ icon: Icon, title, text }, i) => (
-            <Reveal key={title} delay={i * 0.05} className="min-w-0">
+            <Reveal key={title} delay={i * 0.05} className="min-w-0 h-full">
               <article className="group relative flex h-full min-w-0 flex-col bg-card p-8 transition-colors duration-300 hover:bg-secondary/40 sm:p-10">
                 <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" />
                 <div className="flex items-start justify-between">
