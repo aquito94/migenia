@@ -74,17 +74,11 @@ export function EcosystemDiagram({ className }: { className?: string }) {
       <div className="relative px-2 py-4 sm:px-4">
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-60" />
         <svg
-          viewBox="0 0 604 392"
+          viewBox="0 34 604 324"
           className="relative w-full"
           role="img"
           aria-label="Diagrama de integración entre ERP, CRM, WhatsApp, Automatización, Inteligencia Artificial, Business Intelligence y Dashboard Ejecutivo"
         >
-          <defs>
-            <linearGradient id="eco-edge" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="hsl(var(--edge-stop-a, 0 0% 0%))" />
-            </linearGradient>
-          </defs>
-
           {EDGES.map(([a, b], i) => {
             const A = byId(a);
             const B = byId(b);
