@@ -197,15 +197,10 @@ export function ArchitectureDiagram({ className }: { className?: string }) {
             transition={{ duration: 0.6 }}
             style={{ transformOrigin: `${CX}px ${CY}px` }}
           >
-            <motion.circle
-              cx={CX}
-              cy={CY}
-              r={58}
-              className="fill-none stroke-primary/30"
-              initial={{ r: 58, opacity: 0.5 }}
-              animate={{ r: 76, opacity: 0 }}
-              transition={{ duration: 3.4, repeat: Infinity, ease: "easeOut" }}
-            />
+            <circle cx={CX} cy={CY} r={58} className="fill-none stroke-primary/30">
+              <animate attributeName="r" values="58;78" dur="3.4s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.5;0" dur="3.4s" repeatCount="indefinite" />
+            </circle>
             <rect
               x={CX - 84}
               y={CY - 30}
