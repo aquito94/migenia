@@ -49,12 +49,19 @@ export function ButtonLink({
       </Link>
     );
   }
+  const isAnchor = href?.startsWith("#");
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+    <a
+      href={href}
+      target={isAnchor ? undefined : "_blank"}
+      rel={isAnchor ? undefined : "noopener noreferrer"}
+      className={cls}
+    >
       {inner}
     </a>
   );
 }
+
 
 export function ButtonAction({
   children,
