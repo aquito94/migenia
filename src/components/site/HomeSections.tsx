@@ -321,18 +321,18 @@ export function Cases() {
           title="Tres empresas. Tres formas de trabajar mejor."
         />
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        <div className="mt-7 grid gap-3 lg:grid-cols-3">
           {CASES.map(({ sector, problem, solution, result }, i) => (
             <Reveal key={sector} delay={0.04 * i}>
-              <article className="flex h-full flex-col rounded-xl border border-border bg-card p-6 transition-colors duration-300 hover:border-foreground/20">
+              <article className="flex h-full flex-col rounded-xl border border-border bg-card p-5 transition-colors duration-300 hover:border-foreground/20">
                 <div className="flex items-center gap-2.5">
                   <Boxes className="h-4 w-4 shrink-0 text-primary" strokeWidth={1.6} />
-                  <p className="text-base font-semibold tracking-tight text-foreground">
+                  <p className="text-[15px] font-semibold tracking-tight text-foreground">
                     {sector}
                   </p>
                 </div>
 
-                <div className="mt-5 space-y-4 border-t border-border pt-5">
+                <div className="mt-4 space-y-3 border-t border-border pt-4">
                   {[
                     ["Desafío", problem, false],
                     ["Solución", solution, false],
@@ -351,8 +351,8 @@ export function Cases() {
                       <p
                         className={
                           strong
-                            ? "mt-1.5 text-sm leading-relaxed text-foreground"
-                            : "mt-1.5 text-sm leading-relaxed text-muted-foreground"
+                            ? "mt-1 text-[13.5px] leading-relaxed text-foreground"
+                            : "mt-1 text-[13.5px] leading-relaxed text-muted-foreground"
                         }
                       >
                         {text as string}
@@ -366,11 +366,12 @@ export function Cases() {
         </div>
 
         <Reveal delay={0.1}>
-          <p className="mt-8 flex items-center gap-2.5 text-sm text-muted-foreground">
+          <p className="mt-6 flex items-center gap-2.5 text-[13.5px] text-muted-foreground">
             <Clock className="h-4 w-4 shrink-0" strokeWidth={1.6} />
             Cada transformación comienza entendiendo la operación, no eligiendo tecnología.
           </p>
         </Reveal>
+
       </Container>
     </Section>
   );
