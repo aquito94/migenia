@@ -451,23 +451,148 @@ export function Industries() {
 }
 
 
-/* 7. Casos de uso */
+/* 7. Casos de éxito */
+const CASES: Array<{
+  industry: string;
+  icon: LucideIcon;
+  title: string;
+  problem: string;
+  capabilities: string[];
+  before: string;
+  after: string;
+  result: string;
+}> = [
+  {
+    industry: "Retail y Comercio",
+    icon: Store,
+    title: "Operación comercial sin visibilidad en tiempo real",
+    problem:
+      "El equipo consolidaba ventas, inventario y pedidos en hojas de cálculo alimentadas manualmente desde el ERP y los canales digitales. La información llegaba a la dirección con días de retraso y cada área trabajaba con cifras distintas.",
+    capabilities: ["Integración de sistemas", "Automatización", "Business Intelligence"],
+    before:
+      "Consolidación manual de datos, sistemas desconectados y reportes con días de retraso.",
+    after:
+      "ERP, canales digitales e inventario integrados en un modelo de datos único con tableros ejecutivos actualizados de forma automática.",
+    result:
+      "Una sola fuente de verdad para la operación comercial y decisiones diarias basadas en información del día, no del mes anterior.",
+  },
+  {
+    industry: "Servicios y atención al cliente",
+    icon: Headphones,
+    title: "Alto volumen de consultas repetitivas en canales digitales",
+    problem:
+      "La atención se gestionaba de forma manual en WhatsApp y correo, sin registro estructurado en el CRM. Los tiempos de respuesta crecían con la demanda y no existía trazabilidad de las solicitudes.",
+    capabilities: ["Inteligencia Artificial aplicada", "Automatización", "Integración de sistemas"],
+    before:
+      "Atención 100% manual, sin trazabilidad ni registro estructurado de las conversaciones.",
+    after:
+      "Canales digitales conectados al CRM con asistentes de IA que resuelven consultas frecuentes y derivan los casos complejos al equipo.",
+    result:
+      "Respuesta inmediata en las consultas de mayor volumen y equipos enfocados en los casos que realmente requieren criterio humano.",
+  },
+  {
+    industry: "Logística y Distribución",
+    icon: Truck,
+    title: "Procesos operativos dispersos entre múltiples sistemas",
+    problem:
+      "Despachos, facturación y seguimiento vivían en aplicaciones distintas sin comunicación entre ellas. Cada control implicaba revisiones cruzadas manuales y el reproceso se volvió parte de la operación diaria.",
+    capabilities: ["Arquitectura tecnológica", "Desarrollo de software", "Analítica de datos"],
+    before:
+      "Aplicaciones aisladas, controles cruzados manuales y reprocesos constantes.",
+    after:
+      "Arquitectura de integración con flujos automatizados de punta a punta e indicadores operacionales en un tablero único.",
+    result:
+      "Control operativo continuo, menos reprocesos y capacidad de escalar volumen sin sumar carga administrativa.",
+  },
+];
+
 export function UseCases() {
   return (
     <Section id="casos" className="border-b border-border">
       <Container className="max-w-7xl">
-        <SectionShell index="05" title="Casos de uso" />
-        <div className="mt-14 space-y-5">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <Reveal key={i} delay={i * 0.06}>
-              <article className="grid gap-8 rounded-2xl border border-border bg-card p-7 shadow-card sm:p-9 lg:grid-cols-[0.9fr_1.1fr_0.9fr]">
-                <div className="min-w-0">
-                  <SlotLabel>Contexto / sector</SlotLabel>
-                  <HeadingSlot label="Situación inicial" className="mt-5" />
-                </div>
-                <TextSlot label="Solución implementada" lines={4} />
-                <div className="min-w-0 lg:border-l lg:border-border lg:pl-8">
-                  <ListSlot label="Resultados" items={3} />
+        <SectionHeading
+          eyebrow="Casos de transformación"
+          title="Transformaciones que generan resultados reales"
+          lead="Cada proyecto empieza por un problema de negocio concreto. Esto es cómo se ve el cambio entre el punto de partida y la operación resultante."
+        />
+
+        <div className="mt-16 space-y-6 lg:space-y-8">
+          {CASES.map((c, i) => (
+            <Reveal key={c.title} delay={i * 0.06}>
+              <article className="group overflow-hidden rounded-3xl border border-border bg-card transition-colors duration-300 hover:border-primary/25">
+                <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
+                  {/* Left: problem */}
+                  <div className="min-w-0 p-8 sm:p-12 lg:p-14">
+                    <div className="flex items-center gap-3">
+                      <span className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-background text-muted-foreground transition-colors duration-300 group-hover:border-primary/40 group-hover:text-primary">
+                        <c.icon className="h-4 w-4" strokeWidth={1.6} />
+                      </span>
+                      <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                        {c.industry}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-8 font-display text-2xl leading-[1.15] tracking-tight text-foreground sm:text-3xl lg:max-w-xl">
+                      {c.title}
+                    </h3>
+                    <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+                      {c.problem}
+                    </p>
+
+                    <div className="mt-9">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                        Capacidades utilizadas
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {c.capabilities.map((cap) => (
+                          <span
+                            key={cap}
+                            className="rounded-full border border-border bg-secondary/50 px-3.5 py-1.5 text-xs font-medium text-foreground/80"
+                          >
+                            {cap}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right: before / after / result */}
+                  <div className="min-w-0 border-t border-border bg-secondary/30 p-8 sm:p-12 lg:border-l lg:border-t-0 lg:p-14">
+                    <div className="space-y-8">
+                      <div>
+                        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                          Antes
+                        </p>
+                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                          {c.before}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-4" aria-hidden="true">
+                        <span className="h-px flex-1 bg-gradient-to-r from-border to-primary/40" />
+                        <TrendingUp className="h-4 w-4 text-primary" strokeWidth={1.8} />
+                        <span className="h-px flex-1 bg-gradient-to-l from-border to-primary/40" />
+                      </div>
+
+                      <div>
+                        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
+                          Después
+                        </p>
+                        <p className="mt-3 text-[15px] leading-relaxed text-foreground">
+                          {c.after}
+                        </p>
+                      </div>
+
+                      <div className="rounded-2xl border border-border bg-card p-6">
+                        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                          Resultado
+                        </p>
+                        <p className="mt-3 text-[15px] leading-relaxed text-foreground">
+                          {c.result}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </article>
             </Reveal>
@@ -477,6 +602,7 @@ export function UseCases() {
     </Section>
   );
 }
+
 
 /* 8. Tecnologías */
 export function Technologies() {
