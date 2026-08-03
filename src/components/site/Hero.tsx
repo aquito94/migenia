@@ -14,24 +14,24 @@ export function Hero() {
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground">
                 <span className="h-1 w-1 rounded-full bg-primary" />
-                Firma de ingeniería tecnológica
+                Ingeniería tecnológica empresarial
               </span>
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h1 className="mt-8 text-[clamp(2.3rem,4.9vw,3.9rem)] font-semibold leading-[1.05] tracking-tight text-foreground text-balance">
-                La tecnología no transforma empresas.
+              <h1 className="mt-8 text-[clamp(2.2rem,4.7vw,3.7rem)] font-semibold leading-[1.05] tracking-tight text-foreground text-balance">
+                Tu empresa tiene tecnología.
                 <span className="block text-muted-foreground">
-                  La forma en que trabajan, sí.
+                  El reto es hacer que funcione como un sistema.
                 </span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.12}>
               <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                En MiGenIA diseñamos la arquitectura tecnológica que conecta
-                procesos, personas y datos para eliminar ineficiencias, acelerar
-                decisiones y construir empresas preparadas para crecer.
+                Diseñamos e implementamos ecosistemas tecnológicos que conectan
+                procesos, datos, sistemas e inteligencia artificial para mejorar
+                la eficiencia, reducir fricción operativa y acelerar decisiones.
               </p>
             </Reveal>
 
@@ -44,8 +44,8 @@ export function Hero() {
                 >
                   Agenda un diagnóstico estratégico
                 </ButtonAction>
-                <ButtonLink variant="outline" href="#metodo">
-                  Conoce nuestro enfoque
+                <ButtonLink variant="outline" href="#capacidades">
+                  Conoce nuestras capacidades
                 </ButtonLink>
               </div>
             </Reveal>
