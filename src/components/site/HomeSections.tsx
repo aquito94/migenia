@@ -193,22 +193,63 @@ export function Differentiators() {
 }
 
 /* 5. Capacidades */
+const CAPABILITIES: Array<{ icon: LucideIcon; title: string; text: string }> = [
+  {
+    icon: Sparkles,
+    title: "Inteligencia Artificial Aplicada",
+    text: "Diseñamos soluciones con IA que automatizan tareas, mejoran la experiencia del cliente y aumentan la capacidad de análisis de los equipos.",
+  },
+  {
+    icon: Workflow,
+    title: "Automatización Empresarial",
+    text: "Transformamos procesos manuales en flujos inteligentes que reducen tiempos operativos y aumentan la productividad.",
+  },
+  {
+    icon: Share2,
+    title: "Integración de Sistemas",
+    text: "Conectamos ERP, CRM, plataformas digitales y aplicaciones empresariales para crear ecosistemas tecnológicos unificados.",
+  },
+  {
+    icon: LineChart,
+    title: "Business Intelligence",
+    text: "Convertimos datos dispersos en indicadores claros para que los líderes puedan tomar decisiones basadas en información.",
+  },
+  {
+    icon: Code2,
+    title: "Desarrollo de Software",
+    text: "Diseñamos aplicaciones y soluciones digitales adaptadas a las necesidades específicas de cada organización.",
+  },
+  {
+    icon: Layers,
+    title: "Arquitectura Tecnológica",
+    text: "Diseñamos la estructura tecnológica adecuada para que las soluciones sean escalables, seguras y preparadas para crecer.",
+  },
+];
+
 export function Capabilities() {
   return (
     <Section id="capacidades" className="border-b border-border">
       <Container className="max-w-7xl">
-        <SectionShell index="03" title="Capacidades" />
-        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <Reveal key={i} delay={i * 0.04}>
-              <div className="h-full bg-card p-7 sm:p-8">
-                <span className="grid h-9 w-9 place-items-center rounded-lg border border-dashed border-border bg-secondary/60 text-[10px] text-muted-foreground">
-                  Ico
+        <SectionHeading
+          eyebrow="Capacidades"
+          title="Capacidades para construir empresas más inteligentes"
+          lead="MiGenIA no implementa herramientas aisladas. Combinamos capacidades tecnológicas para resolver problemas empresariales complejos."
+        />
+        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {CAPABILITIES.map(({ icon: Icon, title, text }, i) => (
+            <Reveal key={title} delay={i * 0.05} className="min-w-0 h-full">
+              <article className="group relative flex h-full min-w-0 flex-col bg-card p-8 transition-colors duration-300 hover:bg-secondary/40 sm:p-10">
+                <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" />
+                <span className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-background text-muted-foreground transition-colors duration-300 group-hover:border-primary/40 group-hover:text-primary">
+                  <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
                 </span>
-                <HeadingSlot label={`Capacidad ${String(i + 1).padStart(2, "0")}`} className="mt-6" />
-                <TextSlot label="Descripción" lines={2} className="mt-5" />
-                <ListSlot label="Entregables" items={3} />
-              </div>
+                <h3 className="mt-8 text-lg font-semibold tracking-tight text-foreground">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {text}
+                </p>
+              </article>
             </Reveal>
           ))}
         </div>
@@ -216,6 +257,7 @@ export function Capabilities() {
     </Section>
   );
 }
+
 
 /* 6. Cómo trabajamos */
 export function HowWeWork() {
