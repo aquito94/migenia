@@ -9,10 +9,16 @@ import { HeadingSlot, ListSlot, MediaSlot, SlotLabel, TextSlot } from "./Slots";
 import {
   BarChart3,
   Boxes,
+  Code2,
   Compass,
   Headphones,
+  Layers,
+  LineChart,
+  Share2,
+  Sparkles,
   TrendingUp,
   Users,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 
