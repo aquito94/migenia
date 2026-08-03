@@ -9,7 +9,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 grid-lines" />
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[420px] w-[820px] -translate-x-1/2 glow-blue" />
       <Container className="relative max-w-7xl">
-        <div className="grid gap-16 py-24 sm:py-32 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-20 lg:py-36">
+        <div className="grid gap-10 py-14 sm:py-16 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14 lg:py-20">
           <div className="min-w-0">
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground">
@@ -19,7 +19,7 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h1 className="mt-8 text-[clamp(2.2rem,4.7vw,3.7rem)] font-semibold leading-[1.05] tracking-tight text-foreground text-balance">
+              <h1 className="mt-6 text-[clamp(2rem,4vw,3.1rem)] font-semibold leading-[1.06] tracking-tight text-foreground text-balance">
                 Tu empresa tiene tecnología.
                 <span className="block text-muted-foreground">
                   El desafío es hacer que todo funcione como un solo sistema.
@@ -28,16 +28,15 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                En MiGenIA diseñamos e implementamos ecosistemas tecnológicos
-                que conectan procesos, datos, sistemas e inteligencia artificial
-                para mejorar la eficiencia operativa, reducir fricción y
-                acelerar decisiones.
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+                Diseñamos e implementamos ecosistemas tecnológicos que conectan
+                procesos, datos y sistemas para mejorar la eficiencia operativa
+                y acelerar decisiones.
               </p>
             </Reveal>
 
             <Reveal delay={0.18}>
-              <div className="mt-11 flex flex-wrap items-center gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <ButtonAction
                   variant="primary"
                   withArrow
