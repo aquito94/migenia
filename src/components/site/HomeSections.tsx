@@ -1,26 +1,83 @@
-import { Container, Reveal, Section, SectionShell } from "./primitives";
+import {
+  Container,
+  Reveal,
+  Section,
+  SectionHeading,
+  SectionShell,
+} from "./primitives";
 import { HeadingSlot, ListSlot, MediaSlot, SlotLabel, TextSlot } from "./Slots";
+import {
+  BarChart3,
+  Boxes,
+  Compass,
+  Headphones,
+  TrendingUp,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 
-/* 3. Problemas que resolvemos */
+/* 3. Los desafíos que frenan el crecimiento */
+const CHALLENGES: Array<{ icon: LucideIcon; title: string; text: string }> = [
+  {
+    icon: Boxes,
+    title: "Operaciones",
+    text: "Procesos manuales, información dispersa en hojas de cálculo y tareas repetidas entre áreas que retrasan la ejecución.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Comercial",
+    text: "Oportunidades sin seguimiento, pronósticos poco confiables y una visión incompleta del cliente entre CRM y canales de venta.",
+  },
+  {
+    icon: BarChart3,
+    title: "Finanzas",
+    text: "Cierres lentos, conciliaciones manuales y reportes que llegan cuando la decisión ya se tomó.",
+  },
+  {
+    icon: Headphones,
+    title: "Servicio al Cliente",
+    text: "Consultas repetitivas sin automatizar, tiempos de respuesta altos y conversaciones que no quedan registradas en los sistemas.",
+  },
+  {
+    icon: Compass,
+    title: "Dirección",
+    text: "Indicadores que no cuadran entre áreas y falta de una única fuente de verdad para dirigir el negocio.",
+  },
+  {
+    icon: Users,
+    title: "Talento Humano",
+    text: "Trámites internos en papel, datos duplicados y equipos dedicando horas a tareas que no agregan valor.",
+  },
+];
+
 export function Problems() {
   return (
     <Section id="problemas" className="border-b border-border">
       <Container className="max-w-7xl">
-        <SectionShell index="01" title="Problemas que resolvemos" />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <Reveal key={i} delay={i * 0.05}>
-              <article className="flex h-full min-w-0 flex-col rounded-2xl border border-border bg-card p-7 shadow-card">
-                <div className="flex items-center justify-between">
-                  <span className="grid h-9 w-9 place-items-center rounded-lg border border-dashed border-border bg-secondary/60 text-[10px] text-muted-foreground">
-                    Ico
+        <SectionHeading
+          eyebrow="El punto de partida"
+          title="Los desafíos que frenan el crecimiento de muchas empresas"
+          lead="Cuando los procesos, los datos y los sistemas trabajan por separado, el costo no es técnico: es operativo, comercial y estratégico."
+        />
+        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {CHALLENGES.map(({ icon: Icon, title, text }, i) => (
+            <Reveal key={title} delay={i * 0.05} className="min-w-0 h-full">
+              <article className="group relative flex h-full min-w-0 flex-col bg-card p-8 transition-colors duration-300 hover:bg-secondary/40 sm:p-10">
+                <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" />
+                <div className="flex items-start justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-background text-muted-foreground transition-colors duration-300 group-hover:border-primary/40 group-hover:text-primary">
+                    <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
                   </span>
-                  <span className="font-display text-xs text-muted-foreground">
+                  <span className="font-display text-xs tabular-nums text-muted-foreground/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <HeadingSlot label="Problema" className="mt-6" />
-                <TextSlot label="Impacto en el negocio" lines={3} className="mt-6" />
+                <h3 className="mt-8 text-lg font-semibold tracking-tight text-foreground">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {text}
+                </p>
               </article>
             </Reveal>
           ))}
@@ -29,6 +86,7 @@ export function Problems() {
     </Section>
   );
 }
+
 
 /* 4. Qué hace diferente a MiGenIA */
 export function Differentiators() {
