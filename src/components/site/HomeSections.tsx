@@ -5,7 +5,6 @@ import {
   Clock,
   FileStack,
   Layers,
-  Puzzle,
   Repeat,
   Timer,
   Unplug,
