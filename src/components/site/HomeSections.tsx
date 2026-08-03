@@ -32,39 +32,30 @@ import {
 } from "lucide-react";
 
 import { ArchitectureDiagram } from "./ArchitectureDiagram";
-/* 3. Los desafíos que frenan el crecimiento */
+/* 3. ¿Por qué tantas empresas siguen creciendo con procesos que las frenan? */
 const CHALLENGES: Array<{ icon: LucideIcon; title: string; text: string }> = [
   {
-    icon: Boxes,
-    title: "Operaciones",
-    text: "Procesos manuales, información dispersa en hojas de cálculo y tareas repetidas entre áreas que retrasan la ejecución.",
+    icon: Unplug,
+    title: "Procesos desconectados",
+    text: "Los equipos trabajan con herramientas aisladas y la información no fluye correctamente.",
   },
   {
-    icon: TrendingUp,
-    title: "Comercial",
-    text: "Oportunidades sin seguimiento, pronósticos poco confiables y una visión incompleta del cliente entre CRM y canales de venta.",
+    icon: Timer,
+    title: "Decisiones lentas",
+    text: "Los datos existen, pero no están disponibles cuando se necesitan.",
   },
   {
-    icon: BarChart3,
-    title: "Finanzas",
-    text: "Cierres lentos, conciliaciones manuales y reportes que llegan cuando la decisión ya se tomó.",
-  },
-  {
-    icon: Headphones,
-    title: "Servicio al Cliente",
-    text: "Consultas repetitivas sin automatizar, tiempos de respuesta altos y conversaciones que no quedan registradas en los sistemas.",
+    icon: ClipboardList,
+    title: "Trabajo manual",
+    text: "Actividades repetitivas consumen tiempo y generan errores.",
   },
   {
     icon: Compass,
-    title: "Dirección",
-    text: "Indicadores que no cuadran entre áreas y falta de una única fuente de verdad para dirigir el negocio.",
-  },
-  {
-    icon: Users,
-    title: "Talento Humano",
-    text: "Trámites internos en papel, datos duplicados y equipos dedicando horas a tareas que no agregan valor.",
+    title: "Tecnología sin estrategia",
+    text: "Se incorporan herramientas nuevas, pero la operación sigue siendo igual de compleja.",
   },
 ];
+
 
 export function Problems() {
   return (
