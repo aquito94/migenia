@@ -12,6 +12,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Container, Reveal, Section, SectionHeading } from "./primitives";
+import { ButtonAction } from "./Buttons";
+import { openLeadDialog } from "./LeadDialog";
+
 
 /* ── 2. Problema ───────────────────────────────────────────── */
 
