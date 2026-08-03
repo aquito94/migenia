@@ -9,33 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SolucionesRouteImport } from './routes/soluciones'
-import { Route as NosotrosRouteImport } from './routes/nosotros'
-import { Route as IndustriasRouteImport } from './routes/industrias'
-import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiPublicLeadSubmitRouteImport } from './routes/api/public/lead-submit'
 
-const SolucionesRoute = SolucionesRouteImport.update({
-  id: '/soluciones',
-  path: '/soluciones',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NosotrosRoute = NosotrosRouteImport.update({
-  id: '/nosotros',
-  path: '/nosotros',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriasRoute = IndustriasRouteImport.update({
-  id: '/industrias',
-  path: '/industrias',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactoRoute = ContactoRouteImport.update({
-  id: '/contacto',
-  path: '/contacto',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,95 +25,32 @@ const ApiPublicLeadSubmitRoute = ApiPublicLeadSubmitRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/contacto': typeof ContactoRoute
-  '/industrias': typeof IndustriasRoute
-  '/nosotros': typeof NosotrosRoute
-  '/soluciones': typeof SolucionesRoute
   '/api/public/lead-submit': typeof ApiPublicLeadSubmitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/contacto': typeof ContactoRoute
-  '/industrias': typeof IndustriasRoute
-  '/nosotros': typeof NosotrosRoute
-  '/soluciones': typeof SolucionesRoute
   '/api/public/lead-submit': typeof ApiPublicLeadSubmitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/contacto': typeof ContactoRoute
-  '/industrias': typeof IndustriasRoute
-  '/nosotros': typeof NosotrosRoute
-  '/soluciones': typeof SolucionesRoute
   '/api/public/lead-submit': typeof ApiPublicLeadSubmitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/contacto'
-    | '/industrias'
-    | '/nosotros'
-    | '/soluciones'
-    | '/api/public/lead-submit'
+  fullPaths: '/' | '/api/public/lead-submit'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/contacto'
-    | '/industrias'
-    | '/nosotros'
-    | '/soluciones'
-    | '/api/public/lead-submit'
-  id:
-    | '__root__'
-    | '/'
-    | '/contacto'
-    | '/industrias'
-    | '/nosotros'
-    | '/soluciones'
-    | '/api/public/lead-submit'
+  to: '/' | '/api/public/lead-submit'
+  id: '__root__' | '/' | '/api/public/lead-submit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ContactoRoute: typeof ContactoRoute
-  IndustriasRoute: typeof IndustriasRoute
-  NosotrosRoute: typeof NosotrosRoute
-  SolucionesRoute: typeof SolucionesRoute
   ApiPublicLeadSubmitRoute: typeof ApiPublicLeadSubmitRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/soluciones': {
-      id: '/soluciones'
-      path: '/soluciones'
-      fullPath: '/soluciones'
-      preLoaderRoute: typeof SolucionesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/nosotros': {
-      id: '/nosotros'
-      path: '/nosotros'
-      fullPath: '/nosotros'
-      preLoaderRoute: typeof NosotrosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industrias': {
-      id: '/industrias'
-      path: '/industrias'
-      fullPath: '/industrias'
-      preLoaderRoute: typeof IndustriasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contacto': {
-      id: '/contacto'
-      path: '/contacto'
-      fullPath: '/contacto'
-      preLoaderRoute: typeof ContactoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -157,12 +70,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ContactoRoute: ContactoRoute,
-  IndustriasRoute: IndustriasRoute,
-  NosotrosRoute: NosotrosRoute,
-  SolucionesRoute: SolucionesRoute,
   ApiPublicLeadSubmitRoute: ApiPublicLeadSubmitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { Container } from "./primitives";
@@ -8,10 +7,11 @@ import { openLeadDialog } from "./LeadDialog";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { to: "/soluciones", label: "Soluciones" },
-  { to: "/industrias", label: "Industrias" },
-  { to: "/nosotros", label: "Nosotros" },
-  { to: "/contacto", label: "Contacto" },
+  { href: "#problemas", label: "Problemas" },
+  { href: "#diferencial", label: "Diferencial" },
+  { href: "#capacidades", label: "Capacidades" },
+  { href: "#metodo", label: "Cómo trabajamos" },
+  { href: "#casos", label: "Casos de uso" },
 ];
 
 export function Header() {
@@ -34,19 +34,19 @@ export function Header() {
           : "border-b border-transparent",
       )}
     >
-      <Container>
+      <Container className="max-w-7xl">
         <div className="grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 md:flex md:justify-between">
           <Logo />
 
-          <nav className="hidden items-center gap-9 md:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground [&.active]:text-foreground"
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
-              </Link>
+              </a>
             ))}
           </nav>
 
@@ -69,17 +69,17 @@ export function Header() {
 
       {open && (
         <div className="border-t border-border bg-background md:hidden">
-          <Container>
+          <Container className="max-w-7xl">
             <div className="flex flex-col gap-1 py-4">
               {links.map((l) => (
-                <Link
-                  key={l.to}
-                  to={l.to}
+                <a
+                  key={l.href}
+                  href={l.href}
                   onClick={() => setOpen(false)}
                   className="rounded-md px-2 py-2.5 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
                 >
                   {l.label}
-                </Link>
+                </a>
               ))}
               <ButtonAction
                 className="mt-3 w-full"
