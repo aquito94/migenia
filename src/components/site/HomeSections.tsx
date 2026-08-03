@@ -235,18 +235,21 @@ export function Capabilities() {
 /* ── 5. Método MiGenIA ─────────────────────────────────────── */
 
 const STEPS: Array<{ n: string; title: string; body: string }> = [
-  { n: "01", title: "Entender", body: "Analizamos la operación y dónde se pierde eficiencia." },
-  { n: "02", title: "Diseñar", body: "Definimos cómo debería funcionar antes de tocar tecnología." },
-  { n: "03", title: "Construir", body: "Desarrollamos lo necesario, sin piezas de más." },
-  { n: "04", title: "Conectar", body: "Integramos sistemas y datos en una sola operación." },
-  { n: "05", title: "Optimizar", body: "Medimos resultados y mejoramos de forma continua." },
+  { n: "01", title: "Diagnóstico", body: "Comprendemos los procesos actuales y las oportunidades." },
+  { n: "02", title: "Diseño", body: "Definimos la arquitectura adecuada para la operación." },
+  { n: "03", title: "Implementación", body: "Construimos e integramos las soluciones necesarias." },
+  { n: "04", title: "Optimización", body: "Mejoramos de forma continua el impacto generado." },
 ];
 
 export function Method() {
   return (
     <Section id="metodo" className="border-b border-border bg-secondary/40">
       <Container className="max-w-7xl">
-        <SectionHeading eyebrow="Método MiGenIA" title="Cómo trabajamos." />
+        <SectionHeading
+          eyebrow="Método MiGenIA"
+          title="No empezamos implementando tecnología. Primero entendemos el negocio."
+        />
+
 
         <div className="mt-7">
           <div className="relative hidden lg:block">
