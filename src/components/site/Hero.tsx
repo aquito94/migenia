@@ -1,7 +1,15 @@
+import { Check } from "lucide-react";
 import { Container, Reveal } from "./primitives";
 import { ButtonAction, ButtonLink } from "./Buttons";
 import { openLeadDialog } from "./LeadDialog";
 import { EcosystemDiagram } from "./EcosystemDiagram";
+
+const INDICATORS = [
+  "Procesos conectados",
+  "Decisiones basadas en datos",
+  "Automatización inteligente",
+  "Arquitectura escalable",
+];
 
 export function Hero() {
   return (
@@ -19,16 +27,20 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h1 className="mt-7 text-[clamp(2.4rem,5.2vw,4.1rem)] font-semibold leading-[1.03] tracking-tight text-foreground text-balance">
-                Integramos sus sistemas para que la empresa decida con datos, no con supuestos.
+              <h1 className="mt-7 text-[clamp(2.3rem,4.9vw,3.9rem)] font-semibold leading-[1.04] tracking-tight text-foreground text-balance">
+                Tu empresa no necesita más herramientas.
+                <span className="block text-muted-foreground">
+                  Necesita que todas trabajen como una sola.
+                </span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.12}>
               <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Diseñamos, desarrollamos e implementamos soluciones que conectan
-                ERP, CRM, canales de atención, automatización, analítica e
-                Inteligencia Artificial en una sola arquitectura empresarial.
+                En MiGenIA diseñamos la arquitectura tecnológica que conecta
+                procesos, personas, datos e inteligencia artificial para
+                eliminar ineficiencias, acelerar decisiones y hacer que las
+                empresas operen mejor.
               </p>
             </Reveal>
 
@@ -39,13 +51,10 @@ export function Hero() {
                   withArrow
                   onClick={() => openLeadDialog("hero")}
                 >
-                  Agendar evaluación gratuita
+                  Agenda un diagnóstico estratégico
                 </ButtonAction>
-                <ButtonLink
-                  variant="outline"
-                  href="https://wa.me/593992760828?text=Quiero%20transformar%20mi%20negocio"
-                >
-                  Hablar con un especialista
+                <ButtonLink variant="outline" href="#metodo">
+                  Conoce cómo trabajamos
                 </ButtonLink>
               </div>
             </Reveal>
@@ -56,6 +65,21 @@ export function Hero() {
           </Reveal>
         </div>
       </Container>
+
+      <div className="relative border-t border-border bg-card/60">
+        <Container className="max-w-7xl">
+          <ul className="grid gap-x-8 gap-y-4 py-6 sm:grid-cols-2 lg:grid-cols-4">
+            {INDICATORS.map((item, i) => (
+              <Reveal key={item} delay={0.05 * i}>
+                <li className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                  <Check className="h-4 w-4 shrink-0 text-primary" />
+                  <span>{item}</span>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+        </Container>
+      </div>
     </section>
   );
 }
