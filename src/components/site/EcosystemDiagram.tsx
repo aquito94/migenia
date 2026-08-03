@@ -66,7 +66,7 @@ export function EcosystemDiagram({ className }: { className?: string }) {
           </span>
         </div>
         <span className="hidden text-[11px] tabular-nums text-muted-foreground sm:block">
-          8 sistemas · 12 conexiones
+          6 sistemas · 8 conexiones
         </span>
       </div>
 
