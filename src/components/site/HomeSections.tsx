@@ -46,23 +46,24 @@ export function Problems() {
           eyebrow="El punto de partida"
           title="¿Por qué tantas empresas crecen con procesos que las frenan?"
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {PROBLEMS.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={0.04 * i}>
-              <article className="group h-full rounded-xl border border-border bg-card p-6 transition-colors duration-300 hover:border-foreground/20">
-                <span className="inline-grid h-9 w-9 place-items-center rounded-lg border border-border text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-                  <Icon className="h-[17px] w-[17px]" strokeWidth={1.5} />
+              <article className="group h-full rounded-xl border border-border bg-card p-5 transition-colors duration-300 hover:border-foreground/20">
+                <span className="inline-grid h-8 w-8 place-items-center rounded-lg border border-border text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                  <Icon className="h-4 w-4" strokeWidth={1.5} />
                 </span>
-                <h3 className="mt-4 text-base font-semibold tracking-tight text-foreground">
+                <h3 className="mt-3 text-[15px] font-semibold tracking-tight text-foreground">
                   {title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-1.5 text-[13.5px] leading-relaxed text-muted-foreground">
                   {body}
                 </p>
               </article>
             </Reveal>
           ))}
         </div>
+
       </Container>
     </Section>
   );
