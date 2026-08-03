@@ -10,13 +10,13 @@ const CY = 300;
 
 /* radial arrangement around the integration layer */
 const RING: Array<{ id: string; label: string; angle: number }> = [
-  { id: "erp", label: "ERP", angle: -150 },
-  { id: "crm", label: "CRM", angle: -105 },
-  { id: "wa", label: "WhatsApp", angle: -60 },
+  { id: "erp", label: "ERP", angle: -135 },
+  { id: "crm", label: "CRM", angle: -90 },
+  { id: "wa", label: "WhatsApp", angle: -45 },
   { id: "int", label: "Sistemas internos", angle: 180 },
   { id: "data", label: "Datos", angle: 0 },
-  { id: "auto", label: "Automatización", angle: 120 },
-  { id: "ai", label: "Inteligencia Artificial", angle: 60 },
+  { id: "auto", label: "Automatización", angle: 135 },
+  { id: "ai", label: "Inteligencia Artificial", angle: 45 },
 ];
 
 const NODES: N[] = RING.map(({ id, label, angle }) => {
