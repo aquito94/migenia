@@ -144,28 +144,28 @@ const CAPABILITIES: Array<{
   impact: string;
 }> = [
   {
+    icon: Brain,
+    title: "Inteligencia artificial empresarial",
+    problem: "Se habla de IA, pero rara vez aterriza en la operación real.",
+    impact: "Aplicamos IA donde genera impacto medible en procesos y decisiones.",
+  },
+  {
     icon: Workflow,
-    title: "Operaciones inteligentes",
-    problem: "Los procesos avanzan a la velocidad de quien los ejecuta a mano.",
-    impact: "Operaciones que se ejecutan solas, con menos errores y tiempos más cortos.",
+    title: "Automatización inteligente",
+    problem: "El avance de la operación depende de tareas hechas a mano.",
+    impact: "Eliminamos trabajo repetitivo y mejoramos la eficiencia operacional.",
   },
   {
     icon: BarChart3,
-    title: "Decisiones inteligentes",
-    problem: "La dirección revisa reportes que llegan tarde y no coinciden.",
-    impact: "Indicadores confiables y actualizados para decidir sobre hechos.",
+    title: "Business Intelligence",
+    problem: "Los datos existen, pero no llegan a tiempo ni coinciden.",
+    impact: "Convertimos datos dispersos en información útil para decidir.",
   },
   {
     icon: Layers,
-    title: "Procesos conectados",
-    problem: "Cada área opera con sistemas que no se hablan entre sí.",
-    impact: "Información que fluye de punta a punta, sin transcripciones ni retrabajo.",
-  },
-  {
-    icon: Brain,
-    title: "Arquitectura escalable",
-    problem: "Cada nuevo sistema agrega complejidad en lugar de resolverla.",
-    impact: "Una base tecnológica ordenada donde la empresa puede crecer.",
+    title: "Integración y arquitectura",
+    problem: "Cada nuevo sistema suma complejidad en lugar de resolverla.",
+    impact: "Conectamos sistemas para construir operaciones escalables y con control.",
   },
 ];
 
@@ -174,9 +174,11 @@ export function Capabilities() {
     <Section id="capacidades" className="border-b border-border">
       <Container className="max-w-7xl">
         <SectionHeading
-          eyebrow="La solución"
+          eyebrow="Capacidades"
           title="Cuatro frentes de trabajo. Un objetivo: que la empresa opere mejor."
+          lead="La tecnología es el habilitador; el resultado es una operación más eficiente y con mejores decisiones."
         />
+
         <div className="mt-7 grid gap-3 sm:grid-cols-2">
           {CAPABILITIES.map(({ icon: Icon, title, problem, impact }, i) => (
             <Reveal key={title} delay={0.04 * i}>
