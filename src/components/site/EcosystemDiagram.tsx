@@ -39,7 +39,7 @@ function path(a: Node, b: Node) {
   return `M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;
 }
 
-const widthFor = (n: Node) => (n.col === 2 ? 176 : n.col === 1 ? 168 : 148);
+const widthFor = (n: Node) => (n.col === 2 ? 180 : n.col === 1 ? 186 : 140);
 
 export function EcosystemDiagram({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
