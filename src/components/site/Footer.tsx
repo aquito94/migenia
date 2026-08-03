@@ -2,19 +2,18 @@ import { Container } from "./primitives";
 import logo from "@/assets/migenia-logo.png.asset.json";
 
 const solutions = [
-  { label: "Inteligencia Artificial", href: "#capacidades" },
-  { label: "Automatización Empresarial", href: "#capacidades" },
+  { label: "Inteligencia Artificial Empresarial", href: "#capacidades" },
+  { label: "Automatización Inteligente", href: "#capacidades" },
   { label: "Business Intelligence", href: "#capacidades" },
-  { label: "Integración de Sistemas", href: "#capacidades" },
-  { label: "Desarrollo de Software", href: "#capacidades" },
+  { label: "Arquitectura e Integración", href: "#capacidades" },
 ];
 
 const company = [
   { label: "Método MiGenIA", href: "#metodo" },
-  { label: "Industrias", href: "#industrias" },
-  { label: "Casos de éxito", href: "#casos" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Transformación", href: "#transformacion" },
+  { label: "Casos", href: "#casos" },
 ];
+
 
 function ColumnTitle({ children }: { children: React.ReactNode }) {
   return (
