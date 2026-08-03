@@ -8,7 +8,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
       <Header />
-      <main className="flex-1 pt-16">{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
       <LeadDialog />
       <Toaster position="top-center" />
