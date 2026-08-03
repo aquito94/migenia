@@ -94,29 +94,22 @@ export function EcosystemDiagram({ className }: { className?: string }) {
                   className={lit ? "stroke-primary" : "stroke-border"}
                   strokeWidth={lit ? 1.4 : 1}
                 />
-                <motion.circle
-                  r={2.2}
-                  className="fill-primary"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 1, 0] }}
-                  transition={{
-                    duration: 3.2,
-                    delay: i * 0.35,
-                    repeat: Infinity,
-                    repeatDelay: 1.2,
-                    ease: "linear",
-                  }}
-                >
+                <circle r={2.2} className="fill-primary" opacity={0}>
                   <animateMotion
                     dur="3.2s"
                     begin={`${i * 0.35}s`}
                     repeatCount="indefinite"
                     path={d}
-                    keyPoints="0;1"
-                    keyTimes="0;1"
                     calcMode="linear"
                   />
-                </motion.circle>
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    dur="3.2s"
+                    begin={`${i * 0.35}s`}
+                    repeatCount="indefinite"
+                  />
+                </circle>
               </g>
             );
           })}

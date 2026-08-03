@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
 import {
   Problems,
+  Complexity,
   Differentiators,
   Capabilities,
   HowWeWork,
@@ -34,6 +35,7 @@ function Home() {
     <SiteLayout>
       <Hero />
       <Problems />
+      <Complexity />
       <Differentiators />
       <Capabilities />
       <HowWeWork />
