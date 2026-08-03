@@ -22,16 +22,17 @@ export function Hero() {
               <h1 className="mt-8 text-[clamp(2.2rem,4.7vw,3.7rem)] font-semibold leading-[1.05] tracking-tight text-foreground text-balance">
                 Tu empresa tiene tecnología.
                 <span className="block text-muted-foreground">
-                  El reto es hacer que funcione como un sistema.
+                  El desafío es hacer que todo funcione como un solo sistema.
                 </span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.12}>
               <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Diseñamos e implementamos ecosistemas tecnológicos que conectan
-                procesos, datos, sistemas e inteligencia artificial para mejorar
-                la eficiencia, reducir fricción operativa y acelerar decisiones.
+                En MiGenIA diseñamos e implementamos ecosistemas tecnológicos
+                que conectan procesos, datos, sistemas e inteligencia artificial
+                para mejorar la eficiencia operativa, reducir fricción y
+                acelerar decisiones.
               </p>
             </Reveal>
 
