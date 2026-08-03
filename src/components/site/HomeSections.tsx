@@ -604,49 +604,110 @@ export function UseCases() {
 }
 
 
-/* 8. Tecnologías */
+/* 8. Ecosistema tecnológico */
+const STACK_LAYERS: Array<{
+  id: string;
+  icon: LucideIcon;
+  layer: string;
+  title: string;
+  caption: string;
+  items: string[];
+}> = [
+  {
+    id: "01",
+    icon: Sparkles,
+    layer: "Capa 1",
+    title: "Experiencias digitales",
+    caption: "El punto donde las personas y los clientes interactúan con el negocio.",
+    items: ["IA Conversacional", "Aplicaciones Empresariales", "Automatización Inteligente"],
+  },
+  {
+    id: "02",
+    icon: LineChart,
+    layer: "Capa 2",
+    title: "Inteligencia y Datos",
+    caption: "Donde la información se convierte en criterio para decidir.",
+    items: ["Business Intelligence", "Analítica", "Modelos de IA", "Dashboards"],
+  },
+  {
+    id: "03",
+    icon: Share2,
+    layer: "Capa 3",
+    title: "Integración Empresarial",
+    caption: "La conexión entre los sistemas que ya sostienen la operación.",
+    items: ["APIs", "ERP", "CRM", "Sistemas internos"],
+  },
+  {
+    id: "04",
+    icon: Layers,
+    layer: "Capa 4",
+    title: "Infraestructura",
+    caption: "La base que sostiene el crecimiento en el tiempo.",
+    items: ["Cloud", "Arquitectura", "Seguridad", "Escalabilidad"],
+  },
+];
+
 export function Technologies() {
   return (
     <Section id="tecnologias" className="border-b border-border bg-secondary/40">
       <Container className="max-w-7xl">
-        <SectionShell index="06" title="Tecnologías" />
-        <div className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <Reveal>
-            <div className="min-w-0 space-y-8">
-              <TextSlot label="Criterio de selección tecnológica" lines={4} />
-              <div className="space-y-3">
-                {["Categoría 01", "Categoría 02", "Categoría 03", "Categoría 04"].map((c) => (
-                  <div
-                    key={c}
-                    className="flex items-center justify-between rounded-xl border border-border bg-card px-5 py-4"
-                  >
-                    <SlotLabel>{c}</SlotLabel>
-                    <div className="h-2.5 w-24 rounded-full bg-secondary" />
+        <SectionHeading
+          eyebrow="Arquitectura"
+          title="Ecosistema tecnológico"
+          lead="No trabajamos con herramientas sueltas. Diseñamos capas que se sostienen entre sí, desde la infraestructura hasta la experiencia que ve el usuario final."
+        />
+
+        <div className="mt-16 space-y-3 sm:space-y-4">
+          {STACK_LAYERS.map((l, i) => (
+            <Reveal key={l.id} delay={i * 0.07}>
+              <article className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-300 hover:border-primary/30">
+                <span className="pointer-events-none absolute inset-y-0 left-0 w-px bg-primary/0 transition-colors duration-300 group-hover:bg-primary/50" />
+                <div className="grid gap-6 p-7 sm:p-9 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-12">
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-3">
+                      <span className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-background text-muted-foreground transition-colors duration-300 group-hover:border-primary/40 group-hover:text-primary">
+                        <l.icon className="h-4 w-4" strokeWidth={1.6} />
+                      </span>
+                      <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                        {l.layer}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 font-display text-xl tracking-tight text-foreground sm:text-2xl">
+                      {l.title}
+                    </h3>
+                    <p className="mt-2.5 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                      {l.caption}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div className="min-w-0 rounded-2xl border border-border bg-card p-7 shadow-card sm:p-9">
-              <SlotLabel>Stack / logotipos de tecnologías</SlotLabel>
-              <div className="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-4">
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className="flex h-16 items-center justify-center rounded-xl border border-dashed border-border bg-background text-[10px] uppercase tracking-eyebrow text-muted-foreground"
-                  >
-                    Logo
+
+                  <div className="min-w-0 lg:border-l lg:border-border lg:pl-12">
+                    <div className="flex flex-wrap gap-2.5">
+                      {l.items.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-border bg-background px-4 py-2 text-xs font-medium text-foreground/80 transition-colors duration-300 group-hover:border-primary/25"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
-              <div className="mt-8">
-                <MediaSlot label="Diagrama de arquitectura" ratio="aspect-[16/7]" />
-              </div>
-            </div>
-          </Reveal>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <figure className="mx-auto mt-16 max-w-3xl text-center">
+            <blockquote className="font-display text-2xl leading-[1.25] tracking-tight text-foreground sm:text-[34px]">
+              “La tecnología cambia constantemente. La arquitectura correcta permite evolucionar.”
+            </blockquote>
+            <span className="mx-auto mt-8 block h-px w-16 bg-primary/40" />
+          </figure>
+        </Reveal>
       </Container>
     </Section>
   );
 }
+
