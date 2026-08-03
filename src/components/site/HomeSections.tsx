@@ -254,7 +254,7 @@ export function Method() {
         <div className="mt-7">
           <div className="relative hidden lg:block">
             <div className="absolute left-0 right-0 top-[14px] h-px bg-border" />
-            <ol className="relative grid grid-cols-5 gap-4">
+            <ol className="relative grid grid-cols-4 gap-4">
               {STEPS.map(({ n, title, body }, i) => (
                 <Reveal key={n} delay={0.05 * i}>
                   <li>
