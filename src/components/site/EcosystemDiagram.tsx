@@ -13,26 +13,20 @@ type Node = {
 
 /* Column 0: fuentes empresariales · Column 1: capa de proceso · Column 2: salida */
 const NODES: Node[] = [
-  { id: "erp", label: "ERP", short: "Operación", x: 92, y: 70, col: 0 },
-  { id: "crm", label: "CRM", short: "Clientes", x: 92, y: 152, col: 0 },
-  { id: "wa", label: "WhatsApp", short: "Canal", x: 92, y: 234, col: 0 },
-  { id: "mail", label: "Correo", short: "Comunicación", x: 92, y: 316, col: 0 },
-  { id: "db", label: "Base de Datos", short: "Registro", x: 92, y: 398, col: 0 },
-  { id: "auto", label: "Automatización", short: "Procesos", x: 306, y: 152, col: 1 },
-  { id: "ai", label: "IA", short: "Decisión", x: 306, y: 316, col: 1 },
+  { id: "erp", label: "ERP", short: "Operación", x: 92, y: 108, col: 0 },
+  { id: "crm", label: "CRM", short: "Clientes", x: 92, y: 234, col: 0 },
+  { id: "db", label: "Datos", short: "Registro", x: 92, y: 360, col: 0 },
+  { id: "auto", label: "Automatización", short: "Procesos", x: 306, y: 160, col: 1 },
+  { id: "ai", label: "Inteligencia Artificial", short: "Decisión", x: 306, y: 308, col: 1 },
   { id: "dash", label: "Dashboard Ejecutivo", short: "Control", x: 514, y: 234, col: 2 },
 ];
 
 const EDGES: Array<[string, string]> = [
   ["erp", "auto"],
   ["crm", "auto"],
-  ["wa", "auto"],
-  ["mail", "auto"],
   ["db", "auto"],
   ["erp", "ai"],
   ["crm", "ai"],
-  ["wa", "ai"],
-  ["mail", "ai"],
   ["db", "ai"],
   ["auto", "dash"],
   ["ai", "dash"],
