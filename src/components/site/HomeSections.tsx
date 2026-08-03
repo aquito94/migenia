@@ -67,32 +67,33 @@ export function Problems() {
       <Container className="max-w-7xl">
         <SectionHeading
           eyebrow="El punto de partida"
-          title="Los desafíos que frenan el crecimiento de muchas empresas"
-          lead="Cuando los procesos, los datos y los sistemas trabajan por separado, el costo no es técnico: es operativo, comercial y estratégico."
+          title="¿Por qué tantas empresas siguen creciendo con procesos que las frenan?"
+          className="max-w-4xl"
         />
-        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:gap-8">
           {CHALLENGES.map(({ icon: Icon, title, text }, i) => (
-            <Reveal key={title} delay={i * 0.05} className="min-w-0 h-full">
-              <article className="group relative flex h-full min-w-0 flex-col bg-card p-8 transition-colors duration-300 hover:bg-secondary/40 sm:p-10">
-                <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" />
+            <Reveal key={title} delay={i * 0.06} className="min-w-0 h-full">
+              <article className="group relative flex h-full min-w-0 flex-col rounded-2xl border border-border bg-card p-10 transition-colors duration-300 hover:bg-secondary/30 sm:p-12">
                 <div className="flex items-start justify-between">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-border bg-background text-muted-foreground transition-colors duration-300 group-hover:border-primary/40 group-hover:text-primary">
-                    <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
-                  </span>
-                  <span className="font-display text-xs tabular-nums text-muted-foreground/70">
+                  <Icon
+                    className="h-7 w-7 text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
+                    strokeWidth={1.25}
+                  />
+                  <span className="font-display text-xs tabular-nums text-muted-foreground/60">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="mt-8 text-lg font-semibold tracking-tight text-foreground">
+                <h3 className="mt-12 text-xl font-semibold tracking-tight text-foreground sm:text-[1.35rem]">
                   {title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
                   {text}
                 </p>
               </article>
             </Reveal>
           ))}
         </div>
+
       </Container>
     </Section>
   );
