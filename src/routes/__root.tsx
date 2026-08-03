@@ -15,7 +15,7 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Página no encontrada</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
@@ -72,16 +72,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Agente Inteligente — IA empresarial, automatización y omnicanalidad" },
-      { name: "description", content: "Plataforma de IA empresarial para automatizar ventas, atención y operaciones. Conecta WhatsApp, CRM y ERPs con agentes inteligentes." },
-      { name: "author", content: "Agente Inteligente" },
-      { property: "og:title", content: "Agente Inteligente — IA empresarial, automatización y omnicanalidad" },
-      { property: "og:description", content: "Plataforma de IA empresarial para automatizar ventas, atención y operaciones. Conecta WhatsApp, CRM y ERPs con agentes inteligentes." },
+      { title: "MiGenIA — Ingeniería tecnológica para transformación empresarial" },
+      { name: "description", content: "Firma de ingeniería que diseña e implementa IA aplicada, automatización, software, BI e integración de sistemas para empresas medianas y grandes." },
+      { name: "author", content: "MiGenIA" },
+      { property: "og:title", content: "MiGenIA — Ingeniería tecnológica para transformación empresarial" },
+      { property: "og:description", content: "Firma de ingeniería que diseña e implementa IA aplicada, automatización, software, BI e integración de sistemas para empresas medianas y grandes." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Agente Inteligente — IA empresarial, automatización y omnicanalidad" },
-      { name: "twitter:description", content: "Plataforma de IA empresarial para automatizar ventas, atención y operaciones. Conecta WhatsApp, CRM y ERPs con agentes inteligentes." },
+      { name: "twitter:title", content: "MiGenIA — Ingeniería tecnológica para transformación empresarial" },
+      { name: "twitter:description", content: "Firma de ingeniería que diseña e implementa IA aplicada, automatización, software, BI e integración de sistemas para empresas medianas y grandes." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d13f4415-984a-402f-bdba-d3305707be49" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d13f4415-984a-402f-bdba-d3305707be49" },
     ],
@@ -92,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <HeadContent />
       </head>
