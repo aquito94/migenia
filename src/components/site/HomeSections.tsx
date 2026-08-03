@@ -22,22 +22,22 @@ const PROBLEMS: Array<{ icon: LucideIcon; title: string; body: string }> = [
   {
     icon: Unplug,
     title: "Procesos desconectados",
-    body: "Cada área trabaja con herramientas aisladas y la información no fluye.",
+    body: "Equipos que trabajan con información fragmentada y pierden eficiencia.",
+  },
+  {
+    icon: Repeat,
+    title: "Trabajo manual excesivo",
+    body: "Tiempo perdido en tareas repetitivas y errores operativos evitables.",
   },
   {
     icon: FileStack,
     title: "Datos dispersos",
-    body: "Los datos existen, pero viven en sistemas que nunca coinciden.",
+    body: "Información que existe, pero no ayuda a decidir mejor.",
   },
   {
-    icon: Repeat,
-    title: "Trabajo manual",
-    body: "Tareas repetitivas consumen el tiempo del equipo y abren espacio al error.",
-  },
-  {
-    icon: Timer,
-    title: "Decisiones lentas",
-    body: "La dirección espera reportes que llegan tarde para decidir.",
+    icon: Layers,
+    title: "Sistemas aislados",
+    body: "Más herramientas y, con ellas, más complejidad para operar.",
   },
 ];
 
@@ -47,8 +47,10 @@ export function Problems() {
       <Container className="max-w-7xl">
         <SectionHeading
           eyebrow="El punto de partida"
-          title="¿Por qué tantas empresas crecen con procesos que las frenan?"
+          title="A muchas empresas no les falta tecnología. Les falta conexión."
+          lead="Los problemas de fondo no están en las herramientas, sino en cómo se conectan procesos, personas y sistemas."
         />
+
         <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {PROBLEMS.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={0.04 * i}>
