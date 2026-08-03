@@ -265,45 +265,116 @@ export function Capabilities() {
 }
 
 
-/* 6. Cómo trabajamos */
+/* 6. Cómo trabajamos — MiGenIA Transformation Framework */
+const FRAMEWORK: Array<{
+  n: string;
+  name: string;
+  title: string;
+  text: string;
+  icon: LucideIcon;
+}> = [
+  {
+    n: "01",
+    name: "Discover",
+    title: "Entendemos el negocio",
+    text: "Analizamos procesos, roles y decisiones para identificar dónde está el valor antes de proponer tecnología.",
+    icon: Search,
+  },
+  {
+    n: "02",
+    name: "Design",
+    title: "Diseñamos la arquitectura adecuada",
+    text: "Definimos el modelo de datos, sistemas y flujos que sostienen la operación a largo plazo.",
+    icon: PenTool,
+  },
+  {
+    n: "03",
+    name: "Build",
+    title: "Construimos soluciones a medida",
+    text: "Desarrollamos e implementamos con estándares de ingeniería, calidad y seguridad empresarial.",
+    icon: Code2,
+  },
+  {
+    n: "04",
+    name: "Connect",
+    title: "Integramos el ecosistema tecnológico",
+    text: "Conectamos ERP, CRM, canales digitales y aplicaciones internas bajo una sola fuente de verdad.",
+    icon: Share2,
+  },
+  {
+    n: "05",
+    name: "Intelligence",
+    title: "Aplicamos IA y analítica",
+    text: "Convertimos la información integrada en indicadores, automatizaciones y mejores decisiones.",
+    icon: Sparkles,
+  },
+  {
+    n: "06",
+    name: "Evolve",
+    title: "Optimizamos continuamente",
+    text: "Medimos resultados, ajustamos y escalamos la solución conforme evoluciona el negocio.",
+    icon: RefreshCw,
+  },
+];
+
 export function HowWeWork() {
   return (
     <Section id="metodo" className="border-b border-border bg-secondary/40">
       <Container className="max-w-7xl">
-        <SectionShell index="04" title="Cómo trabajamos" />
-        <div className="mt-14 grid gap-5 lg:grid-cols-4">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <Reveal key={i} delay={i * 0.06}>
-              <div className="flex h-full min-w-0 flex-col rounded-2xl border border-border bg-card p-7 shadow-card">
-                <div className="flex items-center gap-3">
-                  <span className="font-display text-3xl font-semibold text-primary/25">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="h-px flex-1 bg-border" />
-                </div>
-                <HeadingSlot label="Etapa" className="mt-6" />
-                <TextSlot label="Qué ocurre" lines={3} className="mt-6" />
-                <ListSlot label="Entregable" items={2} />
-              </div>
+        <SectionHeading
+          eyebrow="Metodología propia"
+          title={
+            <>
+              MiGenIA Transformation Framework
+              <sup className="ml-1 align-super text-[0.4em] font-normal text-muted-foreground">
+                TM
+              </sup>
+            </>
+          }
+          lead="Un proceso estructurado en seis etapas que combina consultoría estratégica e ingeniería tecnológica para llevar una empresa desde el diagnóstico hasta la evolución continua."
+        />
+
+        <div className="relative mt-20">
+          {/* línea de progreso */}
+          <div className="pointer-events-none absolute left-[26px] top-0 bottom-0 w-px bg-border lg:left-0 lg:right-0 lg:top-[26px] lg:bottom-auto lg:h-px lg:w-auto">
+            <Reveal>
+              <div className="h-full w-full origin-top animate-[fade-in_1.2s_ease-out] bg-gradient-to-b from-primary/60 via-primary/25 to-transparent lg:bg-gradient-to-r" />
             </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.1}>
-          <div className="mt-10 rounded-2xl border border-border bg-card p-7 shadow-card">
-            <SlotLabel>Línea de tiempo / duración estimada por fase</SlotLabel>
-            <div className="mt-6 grid grid-cols-4 gap-2">
-              {[35, 55, 80, 100].map((w, i) => (
-                <div key={i} className="h-2.5 rounded-full bg-secondary">
-                  <div className="h-full rounded-full bg-primary/30" style={{ width: `${w}%` }} />
-                </div>
-              ))}
-            </div>
           </div>
-        </Reveal>
+
+          <ol className="grid gap-12 lg:grid-cols-6 lg:gap-6">
+            {FRAMEWORK.map(({ n, name, title, text, icon: Icon }, i) => (
+              <Reveal key={n} delay={i * 0.08} className="min-w-0">
+                <li className="group relative min-w-0 pl-16 lg:pl-0">
+                  <span className="absolute left-0 top-0 grid h-[53px] w-[53px] place-items-center rounded-full border border-border bg-background text-muted-foreground shadow-card transition-colors duration-300 group-hover:border-primary/50 group-hover:text-primary lg:static lg:h-[53px] lg:w-[53px]">
+                    <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
+                  </span>
+                  <div className="lg:mt-7">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-xs tabular-nums text-primary/60">
+                        {n}
+                      </span>
+                      <span className="font-display text-base font-semibold tracking-tight text-foreground">
+                        {name}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm font-medium leading-snug text-foreground/80">
+                      {title}
+                    </p>
+                    <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                      {text}
+                    </p>
+                  </div>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
       </Container>
     </Section>
   );
 }
+
 
 /* 7. Casos de uso */
 export function UseCases() {
