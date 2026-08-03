@@ -87,8 +87,55 @@ export function Problems() {
   );
 }
 
+/* 3b. De la complejidad a una operación inteligente */
+export function Complexity() {
+  return (
+    <Section id="arquitectura" className="border-b border-border bg-secondary/30">
+      <Container className="max-w-7xl">
+        <SectionHeading
+          eyebrow="De la complejidad a una operación inteligente"
+          title="El problema no es tener tecnología. Es que todo funcione de forma aislada."
+          lead="Muchas empresas tienen ERP, CRM, hojas de cálculo, canales digitales y múltiples sistemas, pero trabajan desconectados. MiGenIA diseña la arquitectura tecnológica que conecta personas, procesos y datos para convertir esa complejidad en eficiencia operacional."
+          className="max-w-2xl"
+        />
+        <div className="mt-16 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+          <div className="min-w-0">
+            <Reveal delay={0.05}>
+              <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border">
+                {[
+                  ["Diagnóstico de negocio", "Entendemos procesos, roles y decisiones antes de proponer tecnología."],
+                  ["Arquitectura e integración", "Conectamos sistemas, datos y canales bajo un mismo modelo."],
+                  ["Implementación y adopción", "Automatización, analítica e IA puestas en operación real."],
+                ].map(([title, text]) => (
+                  <div
+                    key={title}
+                    className="group bg-card p-6 transition-colors duration-300 hover:bg-secondary/50 sm:p-7"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="h-1 w-1 rounded-full bg-primary" />
+                      <h3 className="text-sm font-semibold tracking-tight text-foreground">
+                        {title}
+                      </h3>
+                    </div>
+                    <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                      {text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1} className="min-w-0">
+            <ArchitectureDiagram />
+          </Reveal>
+        </div>
+      </Container>
+    </Section>
+  );
+}
 
 /* 4. Qué hace diferente a MiGenIA */
+
 export function Differentiators() {
   return (
     <Section id="diferencial" className="border-b border-border bg-secondary/40">
