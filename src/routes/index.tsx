@@ -7,6 +7,7 @@ import {
   Differentiators,
   Capabilities,
   HowWeWork,
+  Industries,
   UseCases,
   Technologies,
 } from "@/components/site/HomeSections";
@@ -39,6 +40,7 @@ function Home() {
       <Differentiators />
       <Capabilities />
       <HowWeWork />
+      <Industries />
       <UseCases />
       <Technologies />
       <CTA />

@@ -9,6 +9,12 @@ import { HeadingSlot, ListSlot, MediaSlot, SlotLabel, TextSlot } from "./Slots";
 import {
   BarChart3,
   Boxes,
+  Briefcase,
+  HeartPulse,
+  RadioTower,
+  Rocket,
+  Store,
+  Truck,
   Code2,
   Compass,
   Headphones,
@@ -372,6 +378,72 @@ export function HowWeWork() {
               </Reveal>
             ))}
           </ol>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* 6b. Industrias */
+const INDUSTRIES: Array<{ icon: LucideIcon; title: string; text: string }> = [
+  {
+    icon: Store,
+    title: "Retail y Comercio",
+    text: "Optimizamos operaciones comerciales, automatizamos procesos y conectamos sistemas para mejorar eficiencia y experiencia del cliente.",
+  },
+  {
+    icon: RadioTower,
+    title: "Telecomunicaciones",
+    text: "Diseñamos soluciones para automatizar atención, conectar canales y mejorar procesos de alto volumen.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Salud",
+    text: "Ayudamos a organizaciones de salud a digitalizar procesos, mejorar gestión y aprovechar sus datos.",
+  },
+  {
+    icon: Truck,
+    title: "Logística y Distribución",
+    text: "Integramos sistemas y automatizamos operaciones para mejorar control y productividad.",
+  },
+  {
+    icon: Briefcase,
+    title: "Servicios Profesionales",
+    text: "Transformamos procesos administrativos y operativos mediante tecnología personalizada.",
+  },
+  {
+    icon: Rocket,
+    title: "Empresas en crecimiento",
+    text: "Construimos la base tecnológica necesaria para escalar operaciones.",
+  },
+];
+
+export function Industries() {
+  return (
+    <Section id="industrias" className="border-b border-border">
+      <Container className="max-w-7xl">
+        <SectionHeading
+          eyebrow="Industrias"
+          title="Soluciones adaptadas a la realidad de cada industria"
+          lead="Cada sector opera con procesos, volúmenes y prioridades distintas. Diseñamos la solución tecnológica a partir de ese contexto, no de una plantilla."
+        />
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {INDUSTRIES.map(({ icon: Icon, title, text }, i) => (
+            <Reveal key={title} delay={i * 0.05} className="min-w-0 h-full">
+              <article className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-card sm:p-9">
+                <span className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <span className="relative grid h-11 w-11 place-items-center rounded-xl border border-border bg-background text-muted-foreground transition-colors duration-300 group-hover:border-primary/40 group-hover:text-primary">
+                  <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
+                </span>
+                <h3 className="relative mt-8 text-lg font-semibold tracking-tight text-foreground">
+                  {title}
+                </h3>
+                <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {text}
+                </p>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </Container>
     </Section>
