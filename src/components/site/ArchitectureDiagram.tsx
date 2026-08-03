@@ -200,9 +200,10 @@ export function ArchitectureDiagram({ className }: { className?: string }) {
             <motion.circle
               cx={CX}
               cy={CY}
-              r={62}
+              r={58}
               className="fill-none stroke-primary/30"
-              animate={{ r: [58, 74], opacity: [0.5, 0] }}
+              initial={{ r: 58, opacity: 0.5 }}
+              animate={{ r: 76, opacity: 0 }}
               transition={{ duration: 3.4, repeat: Infinity, ease: "easeOut" }}
             />
             <rect
