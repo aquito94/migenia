@@ -8,31 +8,34 @@ type Node = {
   short: string;
   x: number;
   y: number;
+  col: 0 | 1 | 2;
 };
 
+/* Column 0: fuentes empresariales · Column 1: capa de proceso · Column 2: salida */
 const NODES: Node[] = [
-  { id: "erp", label: "ERP", short: "Operación", x: 96, y: 88 },
-  { id: "crm", label: "CRM", short: "Clientes", x: 96, y: 196 },
-  { id: "wa", label: "WhatsApp", short: "Canal", x: 96, y: 304 },
-  { id: "auto", label: "Automatización", short: "Procesos", x: 300, y: 108 },
-  { id: "ai", label: "Inteligencia Artificial", short: "Decisión", x: 300, y: 284 },
-  { id: "bi", label: "Business Intelligence", short: "Modelo de datos", x: 300, y: 196 },
-  { id: "dash", label: "Dashboard Ejecutivo", short: "Control", x: 508, y: 196 },
+  { id: "erp", label: "ERP", short: "Operación", x: 92, y: 70, col: 0 },
+  { id: "crm", label: "CRM", short: "Clientes", x: 92, y: 152, col: 0 },
+  { id: "wa", label: "WhatsApp", short: "Canal", x: 92, y: 234, col: 0 },
+  { id: "mail", label: "Correo", short: "Comunicación", x: 92, y: 316, col: 0 },
+  { id: "db", label: "Base de Datos", short: "Registro", x: 92, y: 398, col: 0 },
+  { id: "auto", label: "Automatización", short: "Procesos", x: 306, y: 152, col: 1 },
+  { id: "ai", label: "IA", short: "Decisión", x: 306, y: 316, col: 1 },
+  { id: "dash", label: "Dashboard Ejecutivo", short: "Control", x: 514, y: 234, col: 2 },
 ];
 
 const EDGES: Array<[string, string]> = [
   ["erp", "auto"],
   ["crm", "auto"],
   ["wa", "auto"],
-  ["erp", "bi"],
-  ["crm", "bi"],
+  ["mail", "auto"],
+  ["db", "auto"],
+  ["erp", "ai"],
+  ["crm", "ai"],
   ["wa", "ai"],
-  ["auto", "bi"],
-  ["ai", "bi"],
-  ["auto", "ai"],
-  ["bi", "dash"],
-  ["ai", "dash"],
+  ["mail", "ai"],
+  ["db", "ai"],
   ["auto", "dash"],
+  ["ai", "dash"],
 ];
 
 const byId = (id: string) => NODES.find((n) => n.id === id)!;
@@ -41,6 +44,8 @@ function path(a: Node, b: Node) {
   const mx = (a.x + b.x) / 2;
   return `M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;
 }
+
+const widthFor = (n: Node) => (n.col === 2 ? 176 : n.col === 1 ? 168 : 148);
 
 export function EcosystemDiagram({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
@@ -63,41 +68,44 @@ export function EcosystemDiagram({ className }: { className?: string }) {
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
           <span className="text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground">
-            Ecosistema empresarial integrado
+            Arquitectura tecnológica conectada
           </span>
         </div>
         <span className="hidden text-[11px] tabular-nums text-muted-foreground sm:block">
-          7 sistemas · 12 integraciones
+          8 sistemas · 12 conexiones
         </span>
       </div>
 
-      <div className="relative px-2 py-4 sm:px-4">
-        <div className="pointer-events-none absolute inset-0 grid-lines opacity-60" />
+      <div className="relative px-2 py-6 sm:px-5">
+        <div className="pointer-events-none absolute inset-0 grid-lines opacity-50" />
         <svg
-          viewBox="0 34 604 324"
+          viewBox="0 20 616 428"
           className="relative w-full"
           role="img"
-          aria-label="Diagrama de integración entre ERP, CRM, WhatsApp, Automatización, Inteligencia Artificial, Business Intelligence y Dashboard Ejecutivo"
+          aria-label="Diagrama de arquitectura que conecta ERP, CRM, WhatsApp, Correo y Base de Datos con Automatización e Inteligencia Artificial hacia un Dashboard Ejecutivo"
         >
           {EDGES.map(([a, b], i) => {
             const A = byId(a);
             const B = byId(b);
             const d = path(A, B);
             const dim = isDim(a) && isDim(b);
-            const lit =
-              active !== null && (a === active || b === active);
+            const lit = active !== null && (a === active || b === active);
             return (
-              <g key={`${a}-${b}`} opacity={dim ? 0.25 : 1} className="transition-opacity duration-300">
+              <g
+                key={`${a}-${b}`}
+                opacity={dim ? 0.2 : 1}
+                className="transition-opacity duration-300"
+              >
                 <path
                   d={d}
                   fill="none"
                   className={lit ? "stroke-primary" : "stroke-border"}
                   strokeWidth={lit ? 1.4 : 1}
                 />
-                <circle r={2.2} className="fill-primary" opacity={0}>
+                <circle r={2.1} className="fill-primary" opacity={0}>
                   <animateMotion
-                    dur="3.2s"
-                    begin={`${i * 0.35}s`}
+                    dur="3.6s"
+                    begin={`${i * 0.3}s`}
                     repeatCount="indefinite"
                     path={d}
                     calcMode="linear"
@@ -105,8 +113,8 @@ export function EcosystemDiagram({ className }: { className?: string }) {
                   <animate
                     attributeName="opacity"
                     values="0;1;1;0"
-                    dur="3.2s"
-                    begin={`${i * 0.35}s`}
+                    dur="3.6s"
+                    begin={`${i * 0.3}s`}
                     repeatCount="indefinite"
                   />
                 </circle>
@@ -116,15 +124,15 @@ export function EcosystemDiagram({ className }: { className?: string }) {
 
           {NODES.map((n, i) => {
             const isHub = n.id === "dash";
-            const w = isHub ? 172 : n.x === 300 ? 176 : 150;
-            const h = 54;
+            const w = widthFor(n);
+            const h = 52;
             const dim = isDim(n.id);
             return (
               <motion.g
                 key={n.id}
                 initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: dim ? 0.35 : 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.06 * i }}
+                animate={{ opacity: dim ? 0.32 : 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.06 * i }}
                 onMouseEnter={() => setActive(n.id)}
                 onMouseLeave={() => setActive(null)}
                 className="cursor-default"
@@ -145,21 +153,28 @@ export function EcosystemDiagram({ className }: { className?: string }) {
                   cx={n.x - w / 2 + 16}
                   cy={n.y}
                   r={3}
-                  className={isHub || active === n.id ? "fill-primary" : "fill-muted-foreground"}
+                  className={
+                    isHub || active === n.id
+                      ? "fill-primary"
+                      : "fill-muted-foreground"
+                  }
                 />
                 <text
                   x={n.x - w / 2 + 28}
-                  y={n.y - 4}
-                  className="fill-foreground text-[12px] font-medium"
+                  y={n.y - 3}
+                  className="fill-foreground font-medium"
                   style={{ fontSize: 12.5 }}
                 >
                   {n.label}
                 </text>
                 <text
                   x={n.x - w / 2 + 28}
-                  y={n.y + 12}
+                  y={n.y + 13}
                   className="fill-muted-foreground"
-                  style={{ fontSize: 10, letterSpacing: "0.06em", textTransform: "uppercase" }}
+                  style={{
+                    fontSize: 9.5,
+                    letterSpacing: "0.06em",
+                  }}
                 >
                   {n.short.toUpperCase()}
                 </text>
@@ -171,9 +186,9 @@ export function EcosystemDiagram({ className }: { className?: string }) {
 
       <div className="grid grid-cols-3 divide-x divide-border border-t border-border text-center">
         {[
-          ["Fuentes", "3"],
-          ["Capas de proceso", "3"],
-          ["Salida", "1"],
+          ["Fuentes", "5"],
+          ["Capas de proceso", "2"],
+          ["Salida ejecutiva", "1"],
         ].map(([label, value]) => (
           <div key={label} className="px-3 py-3">
             <p className="font-display text-base font-semibold tabular-nums text-foreground">
