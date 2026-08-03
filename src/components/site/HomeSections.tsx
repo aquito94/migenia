@@ -100,30 +100,31 @@ export function Transformation() {
           lead="El cambio no se mide en tecnología instalada, sino en cómo trabaja la empresa después."
         />
 
-        <div className="mt-10 overflow-hidden rounded-xl border border-border bg-card">
+        <div className="mt-7 overflow-hidden rounded-xl border border-border bg-card">
           <div className="grid grid-cols-1 border-b border-border sm:grid-cols-2">
-            <p className="px-6 py-3 text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground sm:border-r sm:border-border">
+            <p className="px-5 py-2.5 text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground sm:border-r sm:border-border">
               Antes
             </p>
-            <p className="hidden px-6 py-3 text-[11px] font-medium uppercase tracking-eyebrow text-foreground sm:block">
+            <p className="hidden px-5 py-2.5 text-[11px] font-medium uppercase tracking-eyebrow text-foreground sm:block">
               Después
             </p>
           </div>
           {SHIFTS.map(({ before, after }, i) => (
             <Reveal key={before} delay={0.04 * i}>
               <div className="grid grid-cols-1 items-stretch border-b border-border last:border-b-0 sm:grid-cols-2">
-                <div className="flex items-center gap-3 px-6 py-4 sm:border-r sm:border-border">
+                <div className="flex items-center gap-3 px-5 py-3 sm:border-r sm:border-border">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-border" />
-                  <p className="text-sm leading-relaxed text-muted-foreground">{before}</p>
+                  <p className="text-[13.5px] leading-relaxed text-muted-foreground">{before}</p>
                 </div>
-                <div className="flex items-center gap-3 border-t border-border px-6 py-4 sm:border-t-0">
+                <div className="flex items-center gap-3 border-t border-border px-5 py-3 sm:border-t-0">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  <p className="text-sm font-medium leading-relaxed text-foreground">{after}</p>
+                  <p className="text-[13.5px] font-medium leading-relaxed text-foreground">{after}</p>
                 </div>
               </div>
             </Reveal>
           ))}
         </div>
+
       </Container>
     </Section>
   );
