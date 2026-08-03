@@ -29,10 +29,12 @@ export function Hero() {
 
             <Reveal delay={0.12}>
               <p className="mt-4 max-w-lg text-[14.5px] leading-relaxed text-muted-foreground">
-                Conectamos procesos, datos y sistemas para reducir fricción
-                operativa y acelerar decisiones.
+                Ayudamos a empresas a operar mejor: conectamos procesos, datos y
+                sistemas para reducir fricción operativa, ganar control y
+                acelerar decisiones.
               </p>
             </Reveal>
+
 
             <Reveal delay={0.18}>
               <div className="mt-6 flex flex-wrap items-center gap-3">
