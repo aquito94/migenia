@@ -7,12 +7,13 @@ import { openLeadDialog } from "./LeadDialog";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#capacidades", label: "Soluciones" },
-  { href: "#industrias", label: "Industrias" },
-  { href: "#casos", label: "Casos de éxito" },
+  { href: "#problema", label: "Desafíos" },
+  { href: "#transformacion", label: "Transformación" },
+  { href: "#capacidades", label: "Capacidades" },
   { href: "#metodo", label: "Método MiGenIA" },
-  { href: "#diferencial", label: "Nosotros" },
+  { href: "#casos", label: "Casos" },
 ];
+
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
