@@ -244,40 +244,41 @@ export function Method() {
       <Container className="max-w-7xl">
         <SectionHeading eyebrow="Método MiGenIA" title="Cómo trabajamos." />
 
-        <div className="mt-10">
+        <div className="mt-7">
           <div className="relative hidden lg:block">
-            <div className="absolute left-0 right-0 top-[15px] h-px bg-border" />
-            <ol className="relative grid grid-cols-5 gap-5">
+            <div className="absolute left-0 right-0 top-[14px] h-px bg-border" />
+            <ol className="relative grid grid-cols-5 gap-4">
               {STEPS.map(({ n, title, body }, i) => (
                 <Reveal key={n} delay={0.05 * i}>
                   <li>
-                    <span className="grid h-8 w-8 place-items-center rounded-full border border-border bg-card font-display text-[11px] font-semibold tabular-nums text-foreground">
+                    <span className="grid h-7 w-7 place-items-center rounded-full border border-border bg-card font-display text-[11px] font-semibold tabular-nums text-foreground">
                       {n}
                     </span>
-                    <h3 className="mt-4 text-base font-semibold tracking-tight text-foreground">
+                    <h3 className="mt-3 text-[15px] font-semibold tracking-tight text-foreground">
                       {title}
                     </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                    <p className="mt-1 text-[13.5px] leading-relaxed text-muted-foreground">{body}</p>
                   </li>
                 </Reveal>
               ))}
             </ol>
           </div>
 
-          <ol className="relative space-y-5 border-l border-border pl-7 lg:hidden">
+          <ol className="relative space-y-4 border-l border-border pl-6 lg:hidden">
             {STEPS.map(({ n, title, body }, i) => (
               <Reveal key={n} delay={0.04 * i}>
                 <li className="relative">
-                  <span className="absolute -left-[37px] grid h-5 w-5 place-items-center rounded-full border border-border bg-card text-[9px] font-semibold tabular-nums text-foreground">
+                  <span className="absolute -left-[33px] grid h-5 w-5 place-items-center rounded-full border border-border bg-card text-[9px] font-semibold tabular-nums text-foreground">
                     {n}
                   </span>
-                  <h3 className="text-base font-semibold tracking-tight text-foreground">{title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                  <h3 className="text-[15px] font-semibold tracking-tight text-foreground">{title}</h3>
+                  <p className="mt-1 text-[13.5px] leading-relaxed text-muted-foreground">{body}</p>
                 </li>
               </Reveal>
             ))}
           </ol>
         </div>
+
       </Container>
     </Section>
   );
