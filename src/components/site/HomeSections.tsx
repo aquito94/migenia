@@ -16,6 +16,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { ArchitectureDiagram } from "./ArchitectureDiagram";
 /* 3. Los desafíos que frenan el crecimiento */
 const CHALLENGES: Array<{ icon: LucideIcon; title: string; text: string }> = [
   {
