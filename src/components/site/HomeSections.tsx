@@ -325,7 +325,8 @@ export function Cases() {
       <Container className="max-w-7xl">
         <SectionHeading
           eyebrow="Casos"
-          title="Tres empresas. Tres formas de trabajar mejor."
+          title="Transformaciones que mejoran cómo opera el negocio."
+          lead="Cada caso parte de un problema operativo concreto y termina en un resultado medible por la dirección."
         />
 
         <div className="mt-7 grid gap-3 lg:grid-cols-3">
@@ -341,10 +342,11 @@ export function Cases() {
 
                 <div className="mt-4 space-y-3 border-t border-border pt-4">
                   {[
-                    ["Desafío", problem, false],
+                    ["Problema", problem, false],
                     ["Solución", solution, false],
-                    ["Resultado", result, true],
+                    ["Impacto", result, true],
                   ].map(([label, text, strong]) => (
+
                     <div key={label as string}>
                       <p
                         className={
