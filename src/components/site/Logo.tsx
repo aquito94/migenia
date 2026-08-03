@@ -1,25 +1,16 @@
 import { Link } from "@tanstack/react-router";
+import logo from "@/assets/migenia-logo.png.asset.json";
 
-export function Logo({ compact = false }: { compact?: boolean }) {
+export function Logo({ className = "h-10" }: { className?: string }) {
   return (
-    <Link to="/" className="group inline-flex items-center gap-2.5">
-      <span className="relative grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-foreground">
-        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-          <path
-            d="M4 18V6l8 7 8-7v12"
-            fill="none"
-            stroke="white"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
-      {!compact && (
-        <span className="font-display text-[17px] font-semibold tracking-tight text-foreground">
-          MiGen<span className="text-primary">IA</span>
-        </span>
-      )}
+    <Link to="/" aria-label="MiGenIA — inicio" className="inline-flex items-center">
+      <img
+        src={logo.url}
+        alt="MiGenIA"
+        className={`${className} w-auto object-contain`}
+        width={190}
+        height={40}
+      />
     </Link>
   );
 }

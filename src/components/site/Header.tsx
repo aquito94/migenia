@@ -7,11 +7,11 @@ import { openLeadDialog } from "./LeadDialog";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#problemas", label: "Problemas" },
-  { href: "#diferencial", label: "Diferencial" },
-  { href: "#capacidades", label: "Capacidades" },
-  { href: "#metodo", label: "Cómo trabajamos" },
-  { href: "#casos", label: "Casos de uso" },
+  { href: "#capacidades", label: "Soluciones" },
+  { href: "#industrias", label: "Industrias" },
+  { href: "#casos", label: "Casos de éxito" },
+  { href: "#metodo", label: "Método MiGenIA" },
+  { href: "#diferencial", label: "Nosotros" },
 ];
 
 export function Header() {
@@ -28,22 +28,20 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-border bg-background/85 backdrop-blur-xl"
-          : "border-b border-transparent",
+        "sticky inset-x-0 top-0 z-50 bg-background transition-shadow duration-300",
+        scrolled ? "border-b border-border/80 shadow-[0_1px_2px_rgba(15,23,42,0.04)]" : "border-b border-transparent",
       )}
     >
       <Container className="max-w-7xl">
-        <div className="grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 md:flex md:justify-between">
+        <div className="grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-6 md:flex md:justify-between md:gap-10">
           <Logo />
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-9 lg:flex">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="text-[15px] font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
               </a>
@@ -52,7 +50,7 @@ export function Header() {
 
           <div className="hidden md:block">
             <ButtonAction variant="primary" onClick={() => openLeadDialog("header")}>
-              Agendar diagnóstico
+              Agenda un diagnóstico
             </ButtonAction>
           </div>
 
@@ -88,7 +86,7 @@ export function Header() {
                   openLeadDialog("header_mobile");
                 }}
               >
-                Agendar diagnóstico
+                Agenda un diagnóstico
               </ButtonAction>
             </div>
           </Container>
