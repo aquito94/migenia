@@ -9,9 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SolucionesRouteImport } from './routes/soluciones'
+import { Route as IndustriasRouteImport } from './routes/industrias'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiPublicLeadSubmitRouteImport } from './routes/api/public/lead-submit'
 
+const SolucionesRoute = SolucionesRouteImport.update({
+  id: '/soluciones',
+  path: '/soluciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriasRoute = IndustriasRouteImport.update({
+  id: '/industrias',
+  path: '/industrias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,32 +37,59 @@ const ApiPublicLeadSubmitRoute = ApiPublicLeadSubmitRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/industrias': typeof IndustriasRoute
+  '/soluciones': typeof SolucionesRoute
   '/api/public/lead-submit': typeof ApiPublicLeadSubmitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/industrias': typeof IndustriasRoute
+  '/soluciones': typeof SolucionesRoute
   '/api/public/lead-submit': typeof ApiPublicLeadSubmitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/industrias': typeof IndustriasRoute
+  '/soluciones': typeof SolucionesRoute
   '/api/public/lead-submit': typeof ApiPublicLeadSubmitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/public/lead-submit'
+  fullPaths: '/' | '/industrias' | '/soluciones' | '/api/public/lead-submit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/public/lead-submit'
-  id: '__root__' | '/' | '/api/public/lead-submit'
+  to: '/' | '/industrias' | '/soluciones' | '/api/public/lead-submit'
+  id:
+    | '__root__'
+    | '/'
+    | '/industrias'
+    | '/soluciones'
+    | '/api/public/lead-submit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  IndustriasRoute: typeof IndustriasRoute
+  SolucionesRoute: typeof SolucionesRoute
   ApiPublicLeadSubmitRoute: typeof ApiPublicLeadSubmitRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/soluciones': {
+      id: '/soluciones'
+      path: '/soluciones'
+      fullPath: '/soluciones'
+      preLoaderRoute: typeof SolucionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industrias': {
+      id: '/industrias'
+      path: '/industrias'
+      fullPath: '/industrias'
+      preLoaderRoute: typeof IndustriasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -70,6 +109,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  IndustriasRoute: IndustriasRoute,
+  SolucionesRoute: SolucionesRoute,
   ApiPublicLeadSubmitRoute: ApiPublicLeadSubmitRoute,
 }
 export const routeTree = rootRouteImport
