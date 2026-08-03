@@ -10,6 +10,10 @@ import {
   BarChart3,
   Boxes,
   Briefcase,
+  ClipboardList,
+  Timer,
+  Unplug,
+
   HeartPulse,
   RadioTower,
   Rocket,
