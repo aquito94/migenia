@@ -354,7 +354,7 @@ export function Diagnostic() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.35 }}
                   >
-                    <div className="grid gap-7 lg:grid-cols-[300px_1fr]">
+                    <div className="grid items-start gap-7 lg:grid-cols-[300px_1fr]">
                       {/* Index */}
                       <div className="rounded-xl border border-border bg-secondary/50 p-5">
                         <p className="text-[11px] font-medium uppercase tracking-eyebrow text-muted-foreground">
